@@ -7,3 +7,34 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
+# db/seeds.rb
+
+ApplicationRecord.transaction do 
+    puts "Destroying tables..."
+    # Unnecessary if using `rails db:seed:replant`
+    User.destroy_all
+  
+    puts "Resetting primary keys..."
+    # For easy testing, so that after seeding, the first `User` has `id` of 1
+    ApplicationRecord.connection.reset_pk_sequence!('users')
+  
+    puts "Creating users..."
+    # Create one user with an easy to remember username, email, and password:
+    User.create!(
+      name: 'Jake Farm', 
+      email: 'jakefarm@gmail.com', 
+      password: 'password'
+    )
+  
+    # More users
+    10.times do
+      fake_name = Faker::Name::unique.name
+      User.create!({
+        name: fake_name,
+        email: Faker::Internet.unique.email(name: fake_name),
+        password: 'password'
+      }) 
+    end
+  
+    puts "Done!"
+  end
