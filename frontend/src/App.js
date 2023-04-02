@@ -1,6 +1,9 @@
 function App() {
   return (
-    <h1>Hello from App</h1>
+    <>
+      <h1>Amazoo</h1>
+      <p>**In development**</p>
+    </>
   );
 }
 
