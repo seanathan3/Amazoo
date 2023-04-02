@@ -14,11 +14,11 @@ export const storeCSRF = (res) => {
     if (token) sessionStorage.setItem('X-CSRF-Token', token)
 }
 
-export const restoreCSRF = async () => {
-    const res = await csrfFetch('/api/session');
-    storeCSRF(res);
-    return res;
-}
+// export const restoreCSRF = async () => {
+//     const res = await csrfFetch('/api/session');
+//     storeCSRF(res);
+//     return res;
+// }
 
 
 export default csrfFetch;

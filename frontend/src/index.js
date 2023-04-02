@@ -6,7 +6,8 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import configureStore from './store';
 import csrfFetch, { restoreCSRF } from './store/csrf';
-import * as sessionActions from './store/session'
+import * as sessionActions from './store/session';
+import { restoreSession } from './store/session';
 
 const store = configureStore();
 
@@ -31,8 +32,9 @@ const renderApp = () => {
   )
 }
 
-if (sessionStorage.getItem('X-CSRF-Token') === null) {
-  restoreCSRF().then(renderApp);
+if (sessionStorage.getItem('X-CSRF-Token') === null ||
+    sessionStorage.getItem('currentUser') === null) {
+  store.dispatch(restoreSession()).then(renderApp);
 } else {
   renderApp();
 }
