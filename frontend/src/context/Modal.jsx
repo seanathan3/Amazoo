@@ -1,14 +1,16 @@
-import { useRef, createContext, useContext, useState, useEffect } from "react";
+import { useRef, useContext, useState, useEffect, createContext } from "react";
 import { createPortal } from "react-dom";
+import './Modal.css'
 
 const ModalContext = createContext();
+console.log(ModalContext)
 
 export const ModalProvider = ({children}) => {
     const modalRef = useRef();
     const [value, setValue] = useState();
 
     useEffect(() => {
-        setValue(modalRef.curent);
+        setValue(modalRef.current);
     }, [])
 
     return (
