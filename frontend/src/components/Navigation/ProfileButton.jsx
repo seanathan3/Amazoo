@@ -8,6 +8,8 @@ const ProfileButton = () => {
     const currentUser = useSelector(state => state.session.user)
     const [showMenu, setShowMenu] = useState(false);
     const [menuOptions, setMenuOptions] = useState([]);
+    const [userText, setUserText] = useState('');
+
     const dispatch = useDispatch();
 
     function handleClick(e) {
@@ -17,19 +19,27 @@ const ProfileButton = () => {
     function handleLogOut(e) {
         e.preventDefault();
         dispatch(logout());
+        setShowMenu(false);
     };
+
+    function closeMenu(e) {
+        setShowMenu(false);
+    }
 
     useEffect(() => {
         if (!currentUser) {
+            setUserText('sign in')
             setMenuOptions([(
-                <Link to="/login">Login</Link>
+                <Link onClick={closeMenu} to="/login">Login</Link>
             ),
             (
-                <Link to="/signup">Sign Up</Link>
+                <Link onClick={closeMenu} to="/signup">Sign Up</Link>
             )
 
             ])
         } else {
+            // console.log(currentUser)
+            setUserText(currentUser.name.split(' ')[0])
             setMenuOptions([(
                 <button onClick={handleLogOut}>Logout</button>
             )])
@@ -39,17 +49,19 @@ const ProfileButton = () => {
 
     return(
         <>
+        <div className="profileContainer">
             <button className="profileMenu" onClick={handleClick}>
-                <i className="fa-solid fa-user"></i>
+                Hello, {userText}
             </button>
 
             {showMenu && (
-                <ul>
+                <ul className="profileMenuOptions">
                     {menuOptions.map((option, i) => {
                         return <li key={i}>{option}</li>
                     })}
                 </ul>
             )}
+        </div>
         </>
     )
 }

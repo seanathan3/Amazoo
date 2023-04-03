@@ -68,7 +68,7 @@ const SignUpFormPage = () => {
                     <input className="fieldInput" type="password" value={confirmPass} onChange={e => setConfirmPass(e.target.value)}/>
                 </div>
                 
-                <button>Continue</button>
+                <button className="authButton">Continue</button>
             </form>
         </>
     )
