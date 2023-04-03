@@ -37,7 +37,7 @@ const LoginFormPage = () => {
 
     return(
         <>
-
+                <div className="formLogo">Amazoo</div>
                 <ul>
                     {errors.map((error, i) => {
                         return <li key={i}>{error}</li>

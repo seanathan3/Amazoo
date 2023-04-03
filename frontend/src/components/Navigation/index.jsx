@@ -5,6 +5,7 @@ const Navigation = () => {
     return (
         <>
             <div className="navBar">
+                <div class="logo">Amazoo</div>
                 <ProfileButton />
 
             </div>

@@ -7,10 +7,15 @@ ul {
     background-color:midnightblue;
     display: flex;
     height: 75px;
-    justify-content: right;
+    justify-content: space-between;
 }
 
 .profileMenu {
     width: 25px;
     height: 25px;
+}
+
+.logo {
+    color: white;
+    font-size: 48px;
 }

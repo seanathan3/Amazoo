@@ -4,8 +4,6 @@ import { Link } from "react-router-dom"
 import { logout } from "../../store/session"
 import './navigation.css';
 
-
-
 const ProfileButton = () => {
     const currentUser = useSelector(state => state.session.user)
     const [showMenu, setShowMenu] = useState(false);
