@@ -1,18 +1,35 @@
+body {
+    background-color: white;
+}
+
 ul {
     list-style: none;
 }
 
 .navBar {
     width: 100%;
-    background-color: #131921;
     display: flex;
-    height: 80px;
+    flex-direction: column;
+}
+
+.topNav {
+    background-color:#131921;
+    height: 55px;
+
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+
+}
+
+.bottomNav {
+    background-color:#232f3e;
+    height: 35px;
 }
 
 .profileMenu {
     width: 100px;
-    height: 35px;
+    height: 45px;
     background-color: rgba(0, 0, 0, 0);
     color: white;
     border: none;
@@ -25,12 +42,12 @@ ul {
 
 
 .logo {
-    color: white;
+    color: gold;
     font-size: 24px;
+    padding-left: 30px;
 }
 
 .profileContainer {
-    /* background-color: aliceblue; */
     height:fit-content;
     display: flex;
     flex-direction: column;

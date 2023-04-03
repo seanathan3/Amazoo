@@ -35,7 +35,6 @@ const ProfileButton = () => {
             (
                 <Link onClick={closeMenu} to="/signup">Sign Up</Link>
             )
-
             ])
         } else {
             // console.log(currentUser)

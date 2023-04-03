@@ -5,8 +5,14 @@ const Navigation = () => {
     return (
         <>
             <div className="navBar">
-                <div className="logo">Amazoo</div>
-                <ProfileButton />
+                <div className="topNav">
+                    <div className="logo">Amazoo</div>
+                    <ProfileButton />
+                </div>
+
+                <div className="bottomNav">
+                    
+                </div>
 
             </div>
         </>
