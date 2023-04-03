@@ -1,7 +1,7 @@
 body {
     display: flex;
     justify-content: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial,sans-serif;
 }
 
 form {
@@ -17,7 +17,7 @@ form {
 
 button {
     width: 225px;
-    background-color:rgb(246, 218, 148);
+    background-color: #f0c14b;
     border: 1px solid gray;
     border-radius: 4%;
     height: 20px;
