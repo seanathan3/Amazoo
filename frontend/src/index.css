@@ -1,1 +1,16 @@
 /* TODO Add site wide styles */
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: Arial,sans-serif;
+    margin: 0;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
