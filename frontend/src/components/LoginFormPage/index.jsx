@@ -37,20 +37,27 @@ const LoginFormPage = () => {
 
     return(
         <>
-            <form onSubmit={handleSubmit}>
 
                 <ul>
                     {errors.map((error, i) => {
                         return <li key={i}>{error}</li>
                     })}
                 </ul>
+            <form onSubmit={handleSubmit}>
+                <div className="formHeader">
+                    <h2>Sign in</h2>
+                </div>
                 
-                <label>Email
-                    <input type="text" value={email} onChange={e => setEmail(e.target.value)}/>
-                </label>
-                <label>Password
-                    <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
-                </label>
+                <div className="formItem">
+                    <label className="fieldLabel">Email</label>
+                    <input className="fieldInput" type="text" value={email} onChange={e => setEmail(e.target.value)}/>
+                </div>
+
+                <div className="formItem">
+                    <label className="fieldLabel">Password</label>
+                    <input className="fieldInput" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
+                </div>
+            
                 <button>Sign In</button>
             </form>
         </>
