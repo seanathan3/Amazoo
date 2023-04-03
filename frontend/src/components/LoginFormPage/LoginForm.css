@@ -11,13 +11,21 @@ form {
     justify-content: space-around;
     height: 300px;
     width: 250px;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
     border-radius: 2%;
 }
 
 button {
-    width: 215px;
-    background-color:goldenrod
+    width: 225px;
+    background-color:rgb(246, 218, 148);
+    border: 1px solid gray;
+    border-radius: 4%;
+    height: 20px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color:rgb(245, 208, 113);
 }
 
 .formItem {
@@ -32,6 +40,7 @@ button {
 
 .fieldInput {
     width: 215px;
+    height: 16px;
 }
 
 .formHeader {
