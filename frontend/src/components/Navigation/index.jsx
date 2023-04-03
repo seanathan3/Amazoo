@@ -1,10 +1,40 @@
+import { Link } from "react-router-dom";
+import LoginFormPage from "../LoginFormPage";
+import SignUpFormPage from "../SignUpFormPage";
+import ProfileButton from './ProfileButton';
 
-const Navigation = () => {
+const Carrot = () => (
+    <div style={{ color: "orange", fontSize: "100px" }}>
+      <i className="fa-solid fa-carrot"></i>
+    </div>
+  );
+
+const Navigation = ({currentUser}) => {
+    let sessionLinks;
+    if (currentUser) {
+        sessionLinks = (
+            <>
+                <i className="fa-solid fa-user"></i>
+                <Carrot />
+            </>
+        )
+    } else {
+        sessionLinks = (
+            <>
+                <Link to="/login">Sign In</Link>
+                <br />
+                <Link to="/signup">Sign Up</Link>
+                <br />
+            </>
+        )
+    }
+
     return (
         <>
-            <ul>
-                <li>Totally functioning Navbar</li>
-            </ul>
+            <div>
+                {sessionLinks}
+            </div>
+            <ProfileButton />
         </>
     )
 }

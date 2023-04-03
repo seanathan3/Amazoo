@@ -5,7 +5,6 @@ import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
 import { logout } from "./store/session";
 
-
 function App() {
   const currentUser = useSelector(state => state.session.user)
   const dispatch = useDispatch()
@@ -15,7 +14,9 @@ function App() {
       <h1>Amazoo</h1>
       <p>**In development**</p>
 
-      <Navigation />
+
+      <Navigation currentUser={currentUser} />
+
       <Switch>
         <Route path="/login">
           <LoginFormPage />
@@ -26,14 +27,16 @@ function App() {
           <Link to="/">Home</Link>
         </Route>
         <Route path="/">
-          <Link to="/login">Sign In</Link>
+          {/* <Link to="/login">Sign In</Link>
           <br />
           <Link to="/signup">Sign Up</Link>
-          <br />
+          <br /> */}
           <button onClick={() => dispatch(logout())}>Logout</button>
         </Route>
       </Switch>
       <h4>Current User: {currentUser?.name ? currentUser.name : 'nobody'}</h4>
+
+
     </>
   );
 }
