@@ -1,5 +1,6 @@
 import ProfileButton from './ProfileButton';
 import './navigation.css';
+import Logo from '../../assets/amazoo_white_final.png'
 
 
 const Navigation = () => {
@@ -7,7 +8,9 @@ const Navigation = () => {
         <>
             <div className="navBar">
                 <div className="topNav">
-                    <div className="logo">Amazoo</div>
+                    <div className="logo">
+                        <img src={Logo} alt="Pic" />
+                    </div>
                     <ProfileButton />
                 </div>
 

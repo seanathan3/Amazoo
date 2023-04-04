@@ -1,9 +1,24 @@
 /* TODO Add site wide styles */
 
+@font-face {
+    font-family: 'Ember-light';
+    src: url(./fonts/Ember/AmazonEmber_Lt.ttf);
+}
+
+@font-face {
+    font-family: 'Ember-medium';
+    src: url(./fonts/Ember/Amazon-Ember-Medium.ttf);
+}
+
+@font-face {
+    font-family: 'Ember-bold';
+    src: url(./fonts/Ember/AmazonEmber_Bd.ttf);
+}
+
 body {
     display: flex;
     justify-content: center;
-    font-family: Arial,sans-serif;
+    font-family: 'Ember-light';
     margin: 0;
     background-color: #E3E6E6;
 }
@@ -17,5 +32,5 @@ body {
 
 button {
     cursor: pointer;
-    border-radius: 4%;
+    border-radius: 3px;
 }

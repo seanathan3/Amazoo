@@ -14,7 +14,7 @@ ul {
 
 .topNav {
     background-color:#131921;
-    height: 55px;
+    height: 60px;
 
     display: flex;
     justify-content: space-between;
@@ -24,22 +24,34 @@ ul {
 
 .bottomNav {
     background-color:#232f3e;
-    height: 35px;
+    height: 39px;
 }
 
 .profileMenu {
-    width: 100px;
-    height: 45px;
+    width: 130px;
+    height: 50px;
     background-color: rgba(0, 0, 0, 0);
     color: white;
     border: none;
     right: 100px;
     position: relative;
+    font-family: 'Ember-light';
+    font-size: 13px;
+    text-align: left;
 }
 
 .profileMenu:hover {
     border: 1px solid white;
     background-color: none;
+}
+
+#boldProfileText {
+    font-family: 'Ember-bold';
+    font-size: 14px;
+}
+
+.caret {
+    color: gray
 }
 
 
@@ -65,10 +77,25 @@ ul {
     background-color: white;
 }
 
-#signUpModalButton {
+#signInModalButton {
     width: 200px;
 }
-#signUpModalButton a {
+
+#signUpButtonLink {
     text-decoration: none;
-    color: black
+    color: #05a;
+}
+
+#signUpButtonLink:hover {
+    text-decoration: underline;
+    color:#e47911;
+}
+
+#loginButtonLink {
+    width:max-content;   
+}
+
+.logoutLink {
+    position: relative;
+    bottom: 15px;
 }

@@ -44,7 +44,7 @@ const SignUpFormPage = () => {
 
             <form onSubmit={handleSubmit}>
                 <div className="formHeader">
-                    <h2>Create Account</h2>
+                    <h2>Create account</h2>
                 </div>
 
 
@@ -68,7 +68,7 @@ const SignUpFormPage = () => {
                     <input className="fieldInput" type="password" value={confirmPass} onChange={e => setConfirmPass(e.target.value)}/>
                 </div>
                 
-                <button className="authButton">Continue</button>
+                <button id="formSignUpButton"className="authButton">Sign Up</button>
             </form>
         </>
     )

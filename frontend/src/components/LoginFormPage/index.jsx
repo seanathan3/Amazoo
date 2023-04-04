@@ -58,7 +58,7 @@ const LoginFormPage = () => {
                     <input className="fieldInput" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                 </div>
             
-                <button className="authButton">Sign In</button>
+                <button className="authButton" id="formLogInButton">Sign In</button>
             </form>
         </>
     )

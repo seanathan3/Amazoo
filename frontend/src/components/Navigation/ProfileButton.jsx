@@ -32,17 +32,23 @@ const ProfileButton = () => {
         if (!currentUser) {
             setUserText('sign in')
             setMenuOptions([(
-                <Link onClick={closeMenu} to="/login">Sign In</Link>
+                <Link key="1" id="loginButtonLink" onClick={closeMenu} to="/login">
+                    <button className="authButton" id="signInModalButton">Sign In</button>
+                </Link>
             ),
             (
-                <Link onClick={closeMenu} to="/signup">Start here.</Link>
+                <p key="2" className="signUpLink">New Customer?
+                    <Link id="signUpButtonLink" onClick={closeMenu} to="/signup"> Start here.</Link>
+                </p>
             )
             ])
         } else {
             // console.log(currentUser)
             setUserText(currentUser.name.split(' ')[0])
             setMenuOptions([(
-                <button onClick={handleLogOut}>Logout</button>
+                <Link className="logoutLink" onClick={handleLogOut}>
+                    <button className="authButton">Logout</button>
+                </Link>
             )])
         }
     }, [showMenu, currentUser])
@@ -52,19 +58,22 @@ const ProfileButton = () => {
         <>
         <div className="profileContainer">
             <button className="profileMenu" onClick={handleClick}>
-                Hello, {userText}
+                Hello, {userText} <br />
+                <span id="boldProfileText">Account & Lists </span>
+                <span style={{ color: "gray" }}>
+                    <i className="fa-sharp fa-solid fa-caret-up fa-rotate-180"></i>
+                </span>
             </button>
             {console.log(showModal)}
 
+
             {showModal && (
-                // <ul className="profileMenuOptions">
-                //     {menuOptions.map((option, i) => {
-                //         return <li key={i}>{option}</li>
-                //     })}
-                // </ul>
                 <Modal onClose={() => setShowModal(false)}>
-                    <button className="authButton" id="signUpModalButton">{menuOptions[0]}</button>
-                    <p className="signUpLink">New Customer? {menuOptions[1]} </p>
+                    {menuOptions.map(option => {
+                        return option
+                    })}
+                    
+
                 </Modal>
             )}
         </div>
