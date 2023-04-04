@@ -35,7 +35,7 @@ const SignUpFormPage = () => {
                     else setErrors([res.statusText]);
                 });
         }
-        setErrors(errors.concat(['Passwords must match']))
+        return setErrors(['Passwords must match'])
 
     }
 
@@ -55,7 +55,7 @@ const SignUpFormPage = () => {
                 </div>
 
                 {errors.includes("Name can't be blank") ? 
-                <AuthError message={'Name error'}/> : null
+                <AuthError message={'Enter your name'}/> : null
                 }
 
                 <div className="formItem">

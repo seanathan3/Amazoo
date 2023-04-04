@@ -1,4 +1,5 @@
 import './errors.css'
+import Icon from '../../assets/red_ex_2.png'
 
 const AuthError = ({message}) => {
 
@@ -7,7 +8,10 @@ const AuthError = ({message}) => {
         return null
     }
     return(
-        <li className="error">{message}</li>
+        <div className="errorContainer">
+            <img src={Icon} alt="Icon" />
+            <p className="error">{message}</p>
+        </div>
     )
 }
 
