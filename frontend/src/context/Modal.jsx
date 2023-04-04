@@ -3,7 +3,6 @@ import { createPortal } from "react-dom";
 import './Modal.css'
 
 const ModalContext = createContext();
-console.log(ModalContext)
 
 export const ModalProvider = ({children}) => {
     const modalRef = useRef();

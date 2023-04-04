@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Ember-light';
-  src: url(../fonts/Ember/AmazonEmber_Lt.ttf);
+  font-family: 'Ember';
+  src: url(../fonts/Ember/AmazonEmber_Rg.ttf);
 }
 
 #modal {
@@ -10,7 +10,7 @@
     left: 0;
     bottom: 0;
     display: flex;
-    font-family: 'Ember-light';
+    font-family: 'Ember';
   }
   
   #modal-background {
@@ -26,9 +26,9 @@
     position: absolute;
     background-color:white;
     width: auto;
-    right: 15px;
-    top: 45px;
-    width: 450px;
+    right: 25px;
+    top: 50px;
+    width: 300px;
     height: 60px;
     border-radius: 3px;
     border: 1px solid lightgray;

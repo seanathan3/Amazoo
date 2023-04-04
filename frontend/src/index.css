@@ -15,10 +15,15 @@
     src: url(./fonts/Ember/AmazonEmber_Bd.ttf);
 }
 
+@font-face {
+    font-family: 'Ember';
+    src: url(./fonts/Ember/AmazonEmber_Rg.ttf);
+}
+
 body {
     display: flex;
     justify-content: center;
-    font-family: 'Ember-light';
+    font-family: 'Ember';
     margin: 0;
     background-color: #E3E6E6;
 }
@@ -33,4 +38,9 @@ body {
 button {
     cursor: pointer;
     border-radius: 3px;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
 }

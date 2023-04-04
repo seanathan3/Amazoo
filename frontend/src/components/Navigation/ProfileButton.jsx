@@ -21,7 +21,7 @@ const ProfileButton = () => {
     function handleLogOut(e) {
         e.preventDefault();
         dispatch(logout());
-        setShowMenu(false);
+        setShowModal(false);
     };
 
     function closeMenu(e) {
@@ -43,10 +43,9 @@ const ProfileButton = () => {
             )
             ])
         } else {
-            // console.log(currentUser)
             setUserText(currentUser.name.split(' ')[0])
             setMenuOptions([(
-                <Link className="logoutLink" onClick={handleLogOut}>
+                <Link key='1' className="logoutLink" onClick={handleLogOut} to="/">
                     <button className="authButton">Logout</button>
                 </Link>
             )])
@@ -64,7 +63,6 @@ const ProfileButton = () => {
                     <i className="fa-sharp fa-solid fa-caret-up fa-rotate-180"></i>
                 </span>
             </button>
-            {console.log(showModal)}
 
 
             {showModal && (

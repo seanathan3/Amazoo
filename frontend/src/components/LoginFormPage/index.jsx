@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import './LoginForm.css';
+import blackLogo from '../../assets/amazoo_black.png'
 
 const LoginFormPage = () => {
     const dispatch = useDispatch();
@@ -33,17 +34,22 @@ const LoginFormPage = () => {
             else setErrors([res.statusText]);
           });
       }
+
+      const submitDemoCreds = (e) => {
+        e.preventDefault();
+        return dispatch(login({ email: 'jakefarm@gmail.com', password: 'password' }))
+      }
     
 
     return(
         <>
-                <div className="formLogo">Amazoo</div>
+            <img className="blackLogo"src={blackLogo} alt="Amazoo" />
                 <ul>
                     {errors.map((error, i) => {
                         return <li key={i}>{error}</li>
                     })}
                 </ul>
-            <form onSubmit={handleSubmit}>
+            <form id="loginForm" >
                 <div className="formHeader">
                     <h2>Sign in</h2>
                 </div>
@@ -58,7 +64,11 @@ const LoginFormPage = () => {
                     <input className="fieldInput" type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                 </div>
             
-                <button className="authButton" id="formLogInButton">Sign In</button>
+                <button onClick={handleSubmit} className="authButton" id="formLogInButton">Sign In</button>
+
+                <button onClick={submitDemoCreds} className="authButton" id="demoLogin">Demo User</button>
+
+                <p className="terms">By continuing, you agree to Amazoo's Conditions of Use and Privacy Notice.</p>
             </form>
         </>
     )
