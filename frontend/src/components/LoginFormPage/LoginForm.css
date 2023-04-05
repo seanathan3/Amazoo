@@ -27,6 +27,10 @@ form {
     background: #f0c14b;
 }
 
+.authButton:active {
+    background: #edb62c;
+}
+
 .formItem {
     display: flex;
     flex-direction: column;
@@ -93,4 +97,37 @@ h2 {
 
 #loginForm {
     padding: 20px 26px;
+}
+
+.loginErrorBox {
+    height: 45px;
+    width: 335px;
+    border-radius: 3px;
+    border: 1px solid #C40000;
+    padding: 14px 18px;
+    box-shadow: 0 0 0 4px #fcf4f4 inset;
+    margin-bottom: 15px;
+
+    display: flex;
+}
+
+.alertPic {
+    height: 30px;
+    width: 30px;
+    margin-right: 20px;
+}
+
+.errorBoxText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#redErrorText {
+    font-size: 17px;
+    color:#C40000;
+}
+
+#loginError {
+    font-size: 13px;
 }

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import './LoginForm.css';
 import blackLogo from '../../assets/amazoo_black.png'
+import alert from '../../assets/alert.png'
 
 const LoginFormPage = () => {
     const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const LoginFormPage = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState([])
+    const [error, setError] = useState('')
 
     if (sessionUser) {
         return <Redirect to="/" />
@@ -19,19 +20,10 @@ const LoginFormPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
+        setError('')
         return dispatch(login({ email, password }))
           .catch(async (res) => {
-            let data;
-            try {
-              // .clone() essentially allows you to read the response body twice
-              data = await res.clone().json();
-            } catch {
-              data = await res.text(); // Will hit this case if the server is down
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
+            setError('Your credentials are incorrect')
           });
       }
 
@@ -44,11 +36,19 @@ const LoginFormPage = () => {
     return(
         <>
             <img className="blackLogo"src={blackLogo} alt="Amazoo" />
-                <ul>
-                    {errors.map((error, i) => {
-                        return <li key={i}>{error}</li>
-                    })}
-                </ul>
+
+            {error ? (
+                <>
+                    <div className="loginErrorBox">
+                        <img className="alertPic" src={alert} alt="alert" />
+                        <div className="errorBoxText">
+                            <p id="redErrorText">There was a problem</p>
+                            <p id="loginError">{error}</p>
+                        </div>
+                    </div>
+                </>
+            ) : null }
+
             <form id="loginForm" >
                 <div className="formHeader">
                     <h2>Sign in</h2>
