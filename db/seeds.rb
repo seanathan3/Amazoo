@@ -85,7 +85,7 @@ ApplicationRecord.transaction do
       name: 'Jaguar',
       animal_type: 'Feline',
       price: 204000,
-      description: "The jaguar (Panthera onca) is a large cat species and the only living member of the genus Panthera native to the Americas. With a body length of up to 1.85 m (6 ft 1 in) and a weight of up to 158 kg (348 lb), it is the largest cat species in the Americas and the third largest in the world. " 
+      description: "The jaguar (Panthera onca) is a large cat species and the only living member of the genus Panthera native to the Americas. With a body length of up to 1.85 m (6 ft 1 in) and a weight of up to 158 kg (348 lb), it is the largest cat species in the Americas and the third largest in the world." 
     )
 
     Item.create!(
