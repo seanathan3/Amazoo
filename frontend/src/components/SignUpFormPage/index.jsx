@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { signUp } from "../../store/session";
+import { signUp } from "../../store/sessionReducer";
 import { Redirect } from "react-router-dom";
 import blackLogo from '../../assets/amazoo_black.png'
 import AuthError from "../AuthError";
@@ -14,7 +14,6 @@ const SignUpFormPage = () => {
     const [password, setPassword] = useState('');
     const [confirmPass, setConfirmPass] = useState('');
     const [errors, setErrors] = useState([]);
-    const [messages, setMessages] = useState({})
 
     if (sessionUser) return <Redirect to="/" />
 

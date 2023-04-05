@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { logout } from "../../store/session"
+import { logout } from "../../store/sessionReducer"
 import { Modal } from "../../context/Modal"
 import './navigation.css';
 

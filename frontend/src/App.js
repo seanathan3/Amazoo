@@ -1,13 +1,16 @@
 import { Switch, Route, Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import LoginFormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
-import { logout } from "./store/session";
+import ItemIndex from "./components/ItemIndex"
+
+
+
+
 
 function App() {
   const currentUser = useSelector(state => state.session.user);
-  const dispatch = useDispatch();
 
   return (
     <>
@@ -26,6 +29,7 @@ function App() {
 
         <Route path="/">
           <Navigation />
+          <ItemIndex />
         </Route>
 
       </Switch>

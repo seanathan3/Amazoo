@@ -7,8 +7,9 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
-import * as sessionActions from './store/session';
-import { restoreSession } from './store/session';
+import * as sessionActions from './store/sessionReducer';
+import { restoreSession } from './store/sessionReducer';
+import * as itemActions from './store/itemReducer'
 import { ModalProvider } from './context/Modal';
 
 const store = configureStore();
@@ -17,6 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.store = store;
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
+  window.itemActions = itemActions;
 }
 
 const root = ReactDOMClient.createRoot(document.getElementById('root'));
