@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { fetchItems } from "../../store/itemReducer";
 import DisplayCard from "./DisplayCard";
+import './items.css'
 
 const FormIndex = () => {
     const dispatch = useDispatch();
@@ -15,11 +16,12 @@ const FormIndex = () => {
 
     return (
         <>
-            <ul>
+            <div id="results">Results</div>
+            <div id="itemIndexBackground">
                 {items.map(item => {
                     return <DisplayCard key={item.id} item={item} />
                 })}
-            </ul>
+            </div>
         </>
     )
 }

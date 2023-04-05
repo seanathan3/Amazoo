@@ -1,0 +1,55 @@
+#itemIndexBackground {
+    background-color:white;
+    display: flex;
+    width: 1256px;
+    flex-wrap: wrap;
+    margin: 12px;
+}
+
+#results {
+    font-size: 20px;
+    font-family: 'Ember-bold';
+    width: 100%;
+    padding-left: 220px;
+    position: relative;
+    top: 10px;
+}
+
+.card {
+    height: 600px;
+    width: 300px;
+    border: 1px solid rgb(240, 240, 240);
+    margin: 5px;
+    display: flex;
+    flex-direction:column;
+    border-radius: 3px;
+}
+
+.cardItemImageBox {
+    height: 350px;
+    background-color: rgb(240, 240, 240);
+}
+
+.cardItemText {
+    height: 250px;
+    background-color: white;
+    padding: 10px 5px;
+}
+
+.cardLine {
+    padding: 10px 0;
+}
+
+
+
+#cardName {
+    font-size: 20px;
+}
+
+#cardPrice {
+    font-size: 28px;
+}
+
+#cardAnimalType {
+    font-size: 14px;
+}
