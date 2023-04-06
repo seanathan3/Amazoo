@@ -5,4 +5,10 @@ class Api::ItemsController < ApplicationController
         render 'api/items/index'
     end
 
+    def show
+        @item = Item.find(params[:id]);
+        render 'api/items/show';
+
+    end
+
 end
