@@ -28,6 +28,9 @@
 .cardItemImageBox {
     height: 350px;
     background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cardItemText {
@@ -40,8 +43,6 @@
     padding: 10px 0;
 }
 
-
-
 #cardName {
     font-size: 20px;
 }
@@ -52,4 +53,12 @@
 
 #cardAnimalType {
     font-size: 14px;
+}
+
+#cardPhoto {
+    display: block;
+    max-height: 350px;
+    max-width: 300px;
+    height: auto;
+    width: auto;
 }

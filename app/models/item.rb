@@ -13,4 +13,6 @@
 class Item < ApplicationRecord
     validates :price, :description, :animal_type, presence: true
     validates :name, uniqueness: true, presence: true
+
+    has_one_attached :photo
 end

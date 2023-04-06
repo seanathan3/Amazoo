@@ -30,7 +30,9 @@ const DisplayCard = ({item}) => {
     return (
         <>
             <div className="card">
-                <div className="cardItemImageBox"></div>
+                <div className="cardItemImageBox">
+                    <img id="cardPhoto" src={item.photoUrl} alt="photo" />
+                </div>
                 <div className="cardItemText">
                     <div className="cardLine">
                         <div id="cardName" key="name">{item.name}</div>
