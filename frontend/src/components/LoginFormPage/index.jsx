@@ -72,6 +72,12 @@ const LoginFormPage = () => {
 
                 <p className="terms">By continuing, you agree to Amazoo's Conditions of Use and Privacy Notice.</p>
             </form>
+
+            <p id="newToAmazon">New to Amazoo?</p>
+
+            <Link to="/signup">
+                <button className="authButton" id="grayButton">Create your Amazoo Account</button>
+            </Link>
         </>
     )
 }

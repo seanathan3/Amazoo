@@ -10,7 +10,6 @@ export const receiveItems = (items) => ({
 export const fetchItems = () => async dispatch => {
     const res = await csrfFetch('/api/items');
     const data = await res.json();
-    console.log(data)
     dispatch(receiveItems(data))
 }
 

@@ -10,7 +10,8 @@ const ProfileButton = () => {
     const [showMenu, setShowMenu] = useState(false);
     const [menuOptions, setMenuOptions] = useState([]);
     const [userText, setUserText] = useState('');
-    const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState(false);
+    const [enteredModal, setEnteredModal] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -29,6 +30,7 @@ const ProfileButton = () => {
     }
 
     useEffect(() => {
+
         if (!currentUser) {
             setUserText('sign in')
             setMenuOptions([(
@@ -37,8 +39,8 @@ const ProfileButton = () => {
                 </Link>
             ),
             (
-                <p key="2" className="signUpLink">New Customer?
-                    <Link id="signUpButtonLink" onClick={closeMenu} to="/signup"> Start here.</Link>
+                <p key="2" className="signUpLink">New Customer?&nbsp;
+                    <Link id="signUpButtonLink" onClick={closeMenu} to="/signup">Start here.</Link>
                 </p>
             )
             ])
@@ -50,7 +52,42 @@ const ProfileButton = () => {
                 </Link>
             )])
         }
-    }, [showMenu, currentUser])
+
+        let box = document.getElementsByClassName('profileMenu')[0];
+
+        if (showModal) {
+            let modalContent = document.getElementById('modal-content')
+            let myModal = document.getElementById('modal')
+            modalContent.addEventListener('mouseleave', e => {
+                setShowModal(false);
+            })
+
+            modalContent.addEventListener('mouseenter', e => {
+                setEnteredModal(true)
+                console.log(enteredModal)
+                console.log('myContent')
+            })
+
+            // myModal.addEventListener('mouseenter', e => {
+            //     console.log('myModal')
+            //     if (setEnteredModal) {
+            //         setShowModal(false);
+            //         setEnteredModal(false);
+            //     }
+            // })
+        }
+
+        box.addEventListener('mouseover', e => {
+            setShowModal(true);
+        })
+
+        document.addEventListener('click', e => {
+            setShowModal(false);
+        })
+
+    
+
+    }, [showModal, currentUser])
 
 
     return(

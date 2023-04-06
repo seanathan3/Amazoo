@@ -55,6 +55,7 @@ ul {
     font-family: 'Ember';
     font-size: 13px;
     text-align: left;
+    z-index: 1;
 }
 
 .profileMenu:hover {
@@ -89,16 +90,6 @@ ul {
 
 #signInModalButton {
     width: 200px;
-}
-
-#signUpButtonLink {
-    text-decoration: none;
-    color: #05a;
-}
-
-#signUpButtonLink:hover {
-    text-decoration: underline;
-    color:#e47911;
 }
 
 #loginButtonLink {

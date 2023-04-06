@@ -19,12 +19,10 @@ function App() {
 
         <Route path="/login">
           <LoginFormPage />
-          <Link to="/">Home</Link>
         </Route>
 
         <Route path="/signup">
           <SignUpFormPage />
-          <Link to="/">Home</Link>
         </Route>
 
         <Route path="/">
@@ -33,7 +31,6 @@ function App() {
         </Route>
 
       </Switch>
-      <h4>Current User: {currentUser?.name ? currentUser.name : 'nobody'}</h4>
 
 
     </>
