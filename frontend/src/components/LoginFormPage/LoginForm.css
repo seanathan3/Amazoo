@@ -93,6 +93,11 @@ h2 {
     font-family: 'Ember';
     font-size: 12px;
     padding: 15px 0;
+    line-height: 1.5;
+}
+
+.signUpToLogIn {
+    font-size: 14px;
 }
 
 #loginForm {

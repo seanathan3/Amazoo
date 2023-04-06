@@ -38,6 +38,7 @@ gem "bootsnap", require: false
 
 gem "bcrypt"
 gem "faker"
+gem "aws-sdk-s3"
 
 
 group :development, :test do

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { signUp } from "../../store/sessionReducer";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import blackLogo from '../../assets/amazoo_black.png'
 import AuthError from "../AuthError";
 
@@ -40,7 +40,9 @@ const SignUpFormPage = () => {
 
     return (
         <>
-            <img className="blackLogo"src={blackLogo} alt="Amazoo" />
+            <Link to="/">
+                <img className="blackLogo"src={blackLogo} alt="Amazoo" />
+            </Link>
 
             <form id="signUpForm" onSubmit={handleSubmit}>
                 <div className="formHeader">
@@ -91,6 +93,8 @@ const SignUpFormPage = () => {
                 <button id="formSignUpButton"className="authButton">Sign Up</button>
 
                 <p className="terms">By creating an account, you agree to Amazoo's Conditions of Use and Privacy Notice.</p>
+
+                <p className="signUpToLogIn">Already have an account? <Link to="/login">Sign in</Link></p>
             </form>
         </>
     )

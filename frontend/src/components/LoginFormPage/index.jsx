@@ -1,7 +1,7 @@
 import { login } from "../../store/sessionReducer"
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import './LoginForm.css';
 import blackLogo from '../../assets/amazoo_black.png'
 import alert from '../../assets/alert.png'
@@ -35,7 +35,9 @@ const LoginFormPage = () => {
 
     return(
         <>
-            <img className="blackLogo"src={blackLogo} alt="Amazoo" />
+            <Link to="/">
+                <img className="blackLogo"src={blackLogo} alt="Amazoo" />
+            </Link>
 
             {error ? (
                 <>

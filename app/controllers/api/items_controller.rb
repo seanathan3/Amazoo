@@ -8,7 +8,6 @@ class Api::ItemsController < ApplicationController
     def show
         @item = Item.find(params[:id]);
         render 'api/items/show';
-
     end
 
 end
