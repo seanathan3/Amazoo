@@ -4,6 +4,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
 import ItemIndex from "./components/ItemIndex"
+import ItemPage from "./components/ItemPage";
 
 
 
@@ -36,7 +37,10 @@ function App() {
             <ItemIndex />
           </Route>
 
-        
+          <Route path="/items/:itemId">
+            <ItemPage />
+          </Route>
+
         </Route>
       
       </Switch>

@@ -48,7 +48,7 @@ const ProfileButton = () => {
             setUserText(currentUser.name.split(' ')[0])
             setMenuOptions([(
                 <Link key='1' className="logoutLink" onClick={handleLogOut} to="/">
-                    <button className="authButton">Logout</button>
+                    <button id="logoutButton" className="authButton">Logout</button>
                 </Link>
             )])
         }

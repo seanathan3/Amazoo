@@ -96,6 +96,10 @@ ul {
     bottom: 15px;
 }
 
+#logoutButton {
+    width: 200px;
+}
+
 .bottomNav {
     background-color:#232f3e;
     height: 39px;

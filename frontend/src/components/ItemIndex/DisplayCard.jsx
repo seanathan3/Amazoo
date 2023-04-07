@@ -1,4 +1,4 @@
-
+import { Link } from 'react-router-dom';
 import './items.css'
 
 const DisplayCard = ({item}) => {
@@ -35,7 +35,9 @@ const DisplayCard = ({item}) => {
                 </div>
                 <div className="cardItemText">
                     <div className="cardLine">
-                        <div id="cardName" key="name">{item.name}</div>
+                        <Link to={`/items/${item.id}`}>
+                            <div id="cardName" key="name">{item.name}</div>
+                        </Link>
                         <div id="cardAnimalType" key="animalType">{item.animalType}</div>
                     </div>
                     <p id="cardReviews" className="cardLine">Reviews Placeholder</p>
