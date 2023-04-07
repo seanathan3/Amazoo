@@ -27,11 +27,19 @@ function App() {
 
         <Route path="/">
           <Navigation />
-          <ItemIndex />
+
+          <Route path="/all">
+            <ItemIndex />
+          </Route>
+
+          <Route path="/category/:categoryName">
+            <ItemIndex />
+          </Route>
+
+        
         </Route>
-
+      
       </Switch>
-
 
     </>
   );

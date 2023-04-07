@@ -22,11 +22,6 @@ ul {
 
 }
 
-.bottomNav {
-    background-color:#232f3e;
-    height: 39px;
-}
-
 .logo {
     position: relative;
     padding-left: 5px;
@@ -99,4 +94,30 @@ ul {
 .logoutLink {
     position: relative;
     bottom: 15px;
+}
+
+.bottomNav {
+    background-color:#232f3e;
+    height: 39px;
+    display: flex;
+    align-items: center;
+}
+
+.bottomNav a {
+    display: block;
+    padding: 10px;
+    color: white;
+    height: 16px;
+    text-align:center;
+    font-size: 14px;
+}
+
+.bottomNav a:hover {
+    border: 1px solid white;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.bottomNav a:active {
+    color: #ccc;
 }

@@ -13,6 +13,10 @@ export const fetchItems = () => async dispatch => {
     dispatch(receiveItems(data))
 }
 
+export const fetchItemsByCategory = (category) => async dispatch => {
+    const res = await csrfFetch('/api/items');
+}
+
 const itemReducer = (state={}, action) => {
     switch (action.type) {
         case RECEIVE_ITEMS:
