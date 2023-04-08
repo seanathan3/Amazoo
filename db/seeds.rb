@@ -81,7 +81,7 @@
       name: 'T-Rex',
       animal_type: 'Dinosaur',
       price: 2678450,
-      description: "he species Tyrannosaurus rex (rex meaning 'king' in Latin), often called T. rex or colloquially T-Rex, is one of the best represented theropods. It lived throughout what is now western North America, on what was then an island continent known as Laramidia."
+      description: "The species Tyrannosaurus rex (rex meaning 'king' in Latin), often called T. rex or colloquially T-Rex, is one of the best represented theropods. It lived throughout what is now western North America, on what was then an island continent known as Laramidia."
     )
 
     jaguar = Item.create!(

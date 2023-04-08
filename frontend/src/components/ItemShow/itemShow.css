@@ -1,0 +1,56 @@
+#showMaster {
+    display: flex;
+    margin-top: 40px;
+}
+
+#showPageImage {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+#showImageBox {
+    width: 500px;
+    height: 500px;
+    background-color: white;
+}
+
+#showContent {
+    width: 685px;
+}
+
+#showName {
+    font-size: 24px;
+    line-height: 1.3;
+}
+
+#showType {
+    font-size: 14px;
+    line-height: 1.3;
+}
+
+#showCheckout {
+    width: 245px;
+    padding-left: 20px;
+}
+
+#showDivider {
+    height: 2px;
+    border-top: 1px solid #BBBFBF;
+    margin: 10px 0 10px;
+}
+
+#showDescBox {
+    margin: 10px 0;
+}
+
+#showDescription {
+    padding-left: 10px;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+h3 {
+    font-size: 16px;
+    font-family: 'Ember-bold';
+    margin-bottom: 5px;
+}

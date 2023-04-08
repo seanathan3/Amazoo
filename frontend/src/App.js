@@ -4,7 +4,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
 import ItemIndex from "./components/ItemIndex"
-import ItemPage from "./components/ItemPage";
+import ItemShow from "./components/ItemShow";
 
 
 
@@ -38,7 +38,7 @@ function App() {
           </Route>
 
           <Route path="/items/:itemId">
-            <ItemPage />
+            <ItemShow />
           </Route>
 
         </Route>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import Price from '../Price';
 import './items.css'
 
 const DisplayCard = ({item}) => {
@@ -17,7 +18,6 @@ const DisplayCard = ({item}) => {
             counter++
         }
 
-        finalStringArr.unshift('$')
 
         return finalStringArr.slice(0, finalStringArr.length - 1).join('')
     }
@@ -38,10 +38,13 @@ const DisplayCard = ({item}) => {
                         <Link to={`/items/${item.id}`}>
                             <div id="cardName" key="name">{item.name}</div>
                         </Link>
-                        <div id="cardAnimalType" key="animalType">{item.animalType}</div>
+                        <span id="cardTypeText">class </span>
+                        <Link to={`category/${item.animalType}`}>
+                            <span id="cardAnimalType" key="animalType">{item.animalType}</span>
+                        </Link>
                     </div>
                     <p id="cardReviews" className="cardLine">Reviews Placeholder</p>
-                    <div id="cardPrice" className="cardLine" key="price">{formattedPrice}</div>
+                    <Price price={item.price}/>
                 </div>
             </div>
         </>

@@ -27,7 +27,7 @@
 
 .cardItemImageBox {
     height: 330px;
-    background-color: rgb(240, 240, 240);
+    background-color: #f8f8f8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,17 +43,31 @@
     padding: 10px 0;
 }
 
-#cardName {
-    font-size: 20px;
+.cardLine a {
+    color: black;
 }
 
-#cardPrice {
-    font-size: 28px;
+.cardLine a:hover {
+    color: #C7511F;
+    text-decoration: none;
+}
+
+#cardName {
+    font-size: 18px;
+    margin-bottom: 6px;
 }
 
 #cardAnimalType {
     font-size: 14px;
+    color: #007185;
 }
+
+#cardAnimalType:hover {
+    font-size: 14px;
+    color: #C7511F;
+}
+
+
 
 #cardPhoto {
     display: block;
@@ -61,4 +75,8 @@
     max-width: 300px;
     height: auto;
     width: auto;
+}
+#cardTypeText {
+    font-size: 14px;
+    color:  #565959;
 }
