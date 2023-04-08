@@ -19,13 +19,14 @@
 }
 
 #showName {
-    font-size: 24px;
-    line-height: 1.3;
+    font-size: 28px;
+    line-height: 32px;
 }
 
 #showType {
     font-size: 14px;
     line-height: 1.3;
+    margin-bottom: 10px;
 }
 
 #showCheckout {
@@ -43,14 +44,32 @@
     margin: 10px 0;
 }
 
-#showDescription {
-    padding-left: 10px;
-    line-height: 20px;
-    font-size: 14px;
-}
-
 h3 {
     font-size: 16px;
     font-family: 'Ember-bold';
     margin-bottom: 5px;
+}
+
+.bullet {
+    font-size: 14px;
+    line-height: 20px;
+}
+
+#descList {
+    list-style:disc;
+    list-style-position: outside;
+    padding-left: 20px;
+}
+
+.showLink {
+    color: #007185;
+}
+
+.showLink:hover {
+    color: #C7511F;
+}
+
+#freeReturns {
+    font-size: 14px;
+    margin-top: 5px;
 }

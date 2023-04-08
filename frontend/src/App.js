@@ -29,6 +29,10 @@ function App() {
         <Route path="/">
           <Navigation />
 
+          <Route exact path="/">
+            <ItemIndex />
+          </Route>
+
           <Route path="/all">
             <ItemIndex />
           </Route>

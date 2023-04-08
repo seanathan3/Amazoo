@@ -16,7 +16,12 @@ const ItemShow = () => {
         dispatch(fetchItem(itemId))
     }, [itemId])
 
+    function parseDescription(desc) {
+        let output = desc.split('.')
+        return output.slice(0, output.length - 1)
+    }
 
+    const descArr = item?.description ? parseDescription(item?.description) : []
 
     return (
         <>
@@ -27,7 +32,7 @@ const ItemShow = () => {
                 <div id="showContent">
                     <div id="showName">{item?.name}</div>
                     <Link to={`/category/${item?.animalType}`}>
-                        <div id="showType">{item?.animalType}</div>
+                        <div id="showType" className="showLink">{item?.animalType}</div>
                     </Link>
                     
                     <p>Reviews placeholder</p>
@@ -35,12 +40,17 @@ const ItemShow = () => {
                     <div id="showDivider"></div>
                     
                     <Price price={item?.price}/>
+                    <div id="freeReturns">FREE Returns</div>
                     
                     <div id="showDivider"></div>
                     
                     <div id="showDescBox">
                         <h3>About this animal</h3>
-                        <div id="showDescription">{item?.description}</div>
+                        <ul id="descList">
+                            {descArr.map(fact => {
+                                return <li className="bullet">{fact}</li>
+                            })}
+                        </ul>
                     </div>
 
                 </div>
