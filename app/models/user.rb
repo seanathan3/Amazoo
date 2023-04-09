@@ -64,6 +64,9 @@ class User < ApplicationRecord
     end
 
 
-
+    has_many :cart_items,
+        class_name: :CartItem,
+        primary_key: :id,
+        foreign_key: :user_id
 
 end

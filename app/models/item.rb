@@ -15,4 +15,9 @@ class Item < ApplicationRecord
     validates :name, uniqueness: true, presence: true
 
     has_one_attached :photo
+
+    has_many :cart_items,
+        class_name: :CartItem,
+        primary_key: :id,
+        foreign_key: :item_id
 end
