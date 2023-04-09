@@ -12,7 +12,6 @@ const ItemShow = () => {
     let { itemId } = useParams();
     // itemId = parseInt(itemId)
     const item = useSelector(state => state?.items[itemId] ? state.items[itemId] : null)
-    console.log(item)
 
     useEffect(() => {
         dispatch(fetchItem(itemId))
@@ -28,7 +27,7 @@ const ItemShow = () => {
     return (
         <>
             <div id="showMaster">
-                <div id="showImageBox" class="cardItemImageBox">
+                <div id="showImageBox" className="cardItemImageBox">
                     <img id="showPageImage" src={item?.photoUrl} alt="" />
                 </div>
                 <div id="showContent">
@@ -50,7 +49,7 @@ const ItemShow = () => {
                         <h3>About this animal</h3>
                         <ul id="descList">
                             {descArr.map(fact => {
-                                return <li className="bullet">{fact}</li>
+                                return <li key={fact} className="bullet">{fact}</li>
                             })}
                         </ul>
                     </div>

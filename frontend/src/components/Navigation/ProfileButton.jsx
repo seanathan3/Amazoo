@@ -64,17 +64,7 @@ const ProfileButton = () => {
 
             modalContent.addEventListener('mouseenter', e => {
                 setEnteredModal(true)
-                console.log(enteredModal)
-                console.log('myContent')
             })
-
-            // myModal.addEventListener('mouseenter', e => {
-            //     console.log('myModal')
-            //     if (setEnteredModal) {
-            //         setShowModal(false);
-            //         setEnteredModal(false);
-            //     }
-            // })
         }
 
         box.addEventListener('mouseover', e => {
