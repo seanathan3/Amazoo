@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchItem } from "../../store/itemReducer";
 import Price from "../Price";
+import AddItemForm from "../AddItemForm";
 import './itemShow.css';
+
 
 const ItemShow = () => {
     const dispatch = useDispatch();
@@ -14,7 +16,7 @@ const ItemShow = () => {
 
     useEffect(() => {
         dispatch(fetchItem(itemId))
-    }, [itemId])
+    }, [itemId, dispatch])
 
     function parseDescription(desc) {
         let output = desc.split('.')
@@ -27,7 +29,7 @@ const ItemShow = () => {
         <>
             <div id="showMaster">
                 <div id="showImageBox" class="cardItemImageBox">
-                    <img id="showPageImage" src={item?.photoUrl} alt="image" />
+                    <img id="showPageImage" src={item?.photoUrl} alt="" />
                 </div>
                 <div id="showContent">
                     <div id="showName">{item?.name}</div>
@@ -54,9 +56,8 @@ const ItemShow = () => {
                     </div>
 
                 </div>
-                <div id="showCheckout">
-                    <p>{item?.price}</p>
-                </div>
+
+                <AddItemForm price={item?.price}/>
             </div>
 
 

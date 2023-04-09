@@ -15,7 +15,7 @@
 }
 
 #showContent {
-    width: 685px;
+    width: 600px;
 }
 
 #showName {
@@ -71,5 +71,6 @@ h3 {
 
 #freeReturns {
     font-size: 14px;
-    margin-top: 5px;
+    margin: 8px 0 15px 0;
 }
+
