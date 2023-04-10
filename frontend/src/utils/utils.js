@@ -1,4 +1,8 @@
 export function formatPrice(price) {
+    if (!price) {
+        return null
+    }
+
     let stringifiedPriceArr = price.toString().split('');
     let counter = 0;
     let finalStringArr = [];

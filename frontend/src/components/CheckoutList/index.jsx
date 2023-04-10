@@ -25,8 +25,8 @@ const CheckoutList = () => {
                     {cartItems.map(cartItem => {
                         return (
                         <>
-                            <div className="checkoutListDivider" />
-                            <CheckoutCard cartItem={cartItem}/>
+                            <div key={cartItem.id * 1000} className="checkoutListDivider" />
+                            <CheckoutCard key={cartItem.id} cartItem={cartItem}/>
                         </>
 
                         )
