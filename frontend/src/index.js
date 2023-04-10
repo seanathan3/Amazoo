@@ -8,8 +8,9 @@ import { BrowserRouter } from 'react-router-dom';
 import configureStore from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/sessionReducer';
-import { restoreSession } from './store/sessionReducer';
 import * as itemActions from './store/itemReducer'
+import * as cartItemActions from './store/cartItemReducer'
+import { restoreSession } from './store/sessionReducer';
 import { ModalProvider } from './context/Modal';
 
 const store = configureStore();
@@ -19,6 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
   window.itemActions = itemActions;
+  window.cartItemActions = cartItemActions;
 }
 
 const root = ReactDOMClient.createRoot(document.getElementById('root'));

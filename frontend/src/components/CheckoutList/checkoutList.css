@@ -1,0 +1,25 @@
+
+#checkoutListMaster {
+    background-color: #EAEDED;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#checkoutListItems {
+    background-color: white;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+#checkoutCardContainer {
+    display: flex;
+    height: 400px;
+}
+
+.checkoutPic {
+    max-width: 300px;
+    max-height: 300px;
+}

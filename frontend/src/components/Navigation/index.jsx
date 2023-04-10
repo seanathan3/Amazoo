@@ -1,7 +1,8 @@
 import ProfileButton from './ProfileButton';
 import './navigation.css';
-import whiteLogo from '../../assets/amazoo_white.png'
 import { NavLink, Link } from 'react-router-dom';
+import whiteLogo from '../../assets/amazoo_white.png'
+import CartButton from './CartButton';
 
 
 const Navigation = () => {
@@ -14,7 +15,10 @@ const Navigation = () => {
                             <img className="logoPic" src={whiteLogo} alt="Pic" />
                         </Link>
                     </div>
-                    <ProfileButton />
+                    <div id="rightNavLinks">
+                        <ProfileButton />
+                        <CartButton />
+                    </div>
                 </div>
 
                 <div className="bottomNav">

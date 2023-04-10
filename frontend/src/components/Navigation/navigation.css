@@ -45,7 +45,6 @@ ul {
     background-color: rgba(0, 0, 0, 0);
     color: white;
     border: none;
-    right: 100px;
     position: relative;
     font-family: 'Ember';
     font-size: 13px;
@@ -124,4 +123,44 @@ ul {
 
 .bottomNav a:active {
     color: #ccc;
+}
+
+#rightNavLinks {
+    display: flex;
+}
+
+#cartButtonContainer {
+    position: relative;
+    height: 50px;
+    width: 90px;
+}
+
+#cartButtonContainer:hover {
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#cartButtonText {
+    color: white;
+    font-family: 'Ember-bold';
+    position: relative;
+    left: 50px;
+    bottom: 25px;
+}
+
+#cartButtonQuantity {
+    color: #f08804;
+    font-size: 16px;
+    font-family: 'Arial';
+    font-weight: 600;
+    position: relative;
+    bottom: 53px;
+    left: 24px;
+    width: 20px;
+    text-align: center;
+}
+
+#cartButtonLink {
+    text-decoration: none;
 }

@@ -5,6 +5,7 @@ import SignUpFormPage from "./components/SignUpFormPage";
 import Navigation from "./components/Navigation";
 import ItemIndex from "./components/ItemIndex"
 import ItemShow from "./components/ItemShow";
+import CheckoutList from "./components/CheckoutList";
 
 
 
@@ -43,6 +44,10 @@ function App() {
 
           <Route path="/items/:itemId">
             <ItemShow />
+          </Route>
+
+          <Route path="/checkout">
+            <CheckoutList />
           </Route>
 
         </Route>
