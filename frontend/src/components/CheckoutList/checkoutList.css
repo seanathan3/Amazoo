@@ -3,23 +3,89 @@
     background-color: #EAEDED;
     width: 100%;
     display: flex;
-    flex-direction: column;
     align-items: center;
 }
 
 #checkoutListItems {
     background-color: white;
-    width: 80%;
+    width: 1059px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 18px;
 }
 
 #checkoutCardContainer {
     display: flex;
-    height: 400px;
+    width: 100%;
+    padding: 12px;
 }
 
 .checkoutPic {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 170px;
+    max-height: 170px;
+}
+
+.checkoutPicContainer {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.checkoutListDivider {
+    height: 1px;
+    border-top: 1px solid #E7E7E7;
+    width: 100%;
+}
+
+.checkoutListItemsHeader {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#shoppingCartText {
+    font-size: 28px;
+}
+
+#shoppingCartPrice {
+    position: relative;
+    top: 35px;
+    color: #565959;
+}
+
+.checkoutCardDescription {
+    width: 729px;
+    font-size: 12px;
+}
+
+.checkoutCardPrice {
+    width: 150px;
+    text-align: right;
+    font-family: 'Ember-bold';
+    font-size: 18px;
+}
+
+.cardDescName {
+    font-size: 18px;
+    line-height: 1.3em;
+}
+
+.cardDescInStock {
+    line-height: 20px;
+    color: #007600;
+}
+
+.cardDescFreeShipping {
+    line-height: 16px;
+}
+
+.cardDescBold {
+    font-family: 'Ember-bold';
+    line-height: 20px;
 }

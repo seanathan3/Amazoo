@@ -4,8 +4,8 @@ import { NavLink, Link } from 'react-router-dom';
 import whiteLogo from '../../assets/amazoo_white.png'
 import CartButton from './CartButton';
 
-
 const Navigation = () => {
+
     return (
         <>
             <div className="navBar">

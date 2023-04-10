@@ -1,14 +1,16 @@
 class Api::CartItemsController < ApplicationController
+    wrap_parameters include: CartItem.attribute_names + ['userId', 'itemId']
+
 
     def index
         @cart_items = User.find(params[:user_id]).cart_items
-        render '/api/cart_items/index'
+        render :index
     end
 
     def create
         @cart_item = CartItem.new(cart_item_params)
         @cart_item.save!
-        render json: { message: 'success!'}
+        render :show
     end
 
     def update

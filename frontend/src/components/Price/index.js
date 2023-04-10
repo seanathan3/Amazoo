@@ -1,24 +1,7 @@
 import './price.css'
+import { formatPrice } from '../../utils/utils';
 
 const Price = ({price}) => {
-
-    function formatPrice(price) {
-        let stringifiedPriceArr = price.toString().split('');
-        let counter = 0;
-        let finalStringArr = [];
-        
-        while (stringifiedPriceArr.length > 0) {
-            if (counter % 3 === 0) {
-                finalStringArr.unshift(',')
-            }
-            finalStringArr.unshift(stringifiedPriceArr.pop())
-            counter++
-        }
-
-
-        return finalStringArr.slice(0, finalStringArr.length - 1).join('')
-    }
-
     const formattedPrice = price ? formatPrice(price) : 0
 
     return (

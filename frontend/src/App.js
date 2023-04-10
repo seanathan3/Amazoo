@@ -7,10 +7,6 @@ import ItemIndex from "./components/ItemIndex"
 import ItemShow from "./components/ItemShow";
 import CheckoutList from "./components/CheckoutList";
 
-
-
-
-
 function App() {
   const currentUser = useSelector(state => state.session.user);
 

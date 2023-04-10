@@ -18,8 +18,18 @@ const CheckoutList = () => {
         <>
             <div id="checkoutListMaster">
                 <div id="checkoutListItems">
+                    <div className="checkoutListItemsHeader">
+                        <div id="shoppingCartText">Shopping Cart</div>
+                        <div id="shoppingCartPrice">Price</div>
+                    </div>
                     {cartItems.map(cartItem => {
-                        return <CheckoutCard cartItem={cartItem}/>
+                        return (
+                        <>
+                            <div className="checkoutListDivider" />
+                            <CheckoutCard cartItem={cartItem}/>
+                        </>
+
+                        )
                     })}
                 </div>
             </div>
