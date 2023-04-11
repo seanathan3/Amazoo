@@ -3,7 +3,13 @@
     background-color: #EAEDED;
     width: 100%;
     display: flex;
-    align-items: center;
+}
+
+#checkoutListMasterFixed {
+    background-color: #EAEDED;
+    width: 100%;
+    display: flex;
+    height: 700px;
 }
 
 #checkoutListItems {
@@ -88,4 +94,132 @@
 .cardDescBold {
     font-family: 'Ember-bold';
     line-height: 20px;
+}
+
+.cardDescToolbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 130px;
+    position: relative;
+    top: 70px;
+}
+
+.checkoutDelete {
+    border: none;
+    background: none;
+    color: #007185;
+}
+
+.checkoutDelete:hover {
+    text-decoration: underline;
+}
+
+.divider {
+    width: 1px;
+    height: 14px;
+    border-right: 1px solid #ddd;
+}
+
+.checkoutQuantityLabel {
+    font-family: 'Ember-bold';
+    position: relative;
+    bottom: 1px;
+}
+
+#subtotalContainer {
+    font-size: 18px;
+    height: 50px;
+    padding: 5px 0;
+    text-align: right;
+    width: 100%;
+}
+
+.bold {
+    font-family: 'Ember-bold';
+}
+
+.subtleLink {
+    color: black;
+}
+
+.subtleLink:hover {
+    color: black;
+    text-decoration: none;
+}
+
+#purchaseCard {
+    background-color: white;
+    width: 260px;
+    height: 172px;
+    padding: 20px;
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#purchaseSubtotal {
+    font-size: 18px;
+}
+
+#emptyCartMsg {
+    font-family: 'Ember-bold';
+    font-size: 28px;
+    position: relative;
+    top: 30px;
+}
+
+#checkoutListItems2 {
+    background-color: white;
+    width: 1059px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin: 18px;
+    height: 200px;
+}
+
+#whiteBox {
+    height:75px;
+    margin-left: 18px;
+    margin-bottom: 18px;
+    width: 1099px;
+    background-color: white;
+}
+
+#checkoutTerms {
+    margin-left: 18px;
+    margin-bottom: 150px;
+    font-size: 12px;
+    width: 1099px;
+}
+
+#finalCheckoutButton {
+    width: 260px;
+    border-radius: 7px;
+    position: relative;
+    bottom: 10px;
+}
+
+#finalCheckoutButton:hover {
+    background-color: #F7CA00;
+}
+
+.green {
+    color: #067D62;
+}
+
+#purchaseCardText {
+    font-size: 12px;
+}
+
+#checkoutFreeShipping {
+    display: flex;
+}
+
+#purchaseCardText {
+    position: relative;
+    left: 5px;
 }

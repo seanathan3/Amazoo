@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 import ItemIndex from "./components/ItemIndex"
 import ItemShow from "./components/ItemShow";
 import CheckoutList from "./components/CheckoutList";
+import OrderMessage from "./components/OrderMessage";
 
 function App() {
   const currentUser = useSelector(state => state.session.user);
@@ -44,6 +45,10 @@ function App() {
 
           <Route path="/checkout">
             <CheckoutList />
+          </Route>
+
+          <Route path="/orderMessage/:count">
+            <OrderMessage />
           </Route>
 
         </Route>

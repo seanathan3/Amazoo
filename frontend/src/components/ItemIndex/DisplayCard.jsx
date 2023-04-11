@@ -31,7 +31,9 @@ const DisplayCard = ({item}) => {
         <>
             <div className="card">
                 <div className="cardItemImageBox">
-                    <img id="cardPhoto" src={item.photoUrl} alt="photo" />
+                    <Link to={`/items/${item.id}`}>
+                        <img id="cardPhoto" src={item.photoUrl} alt="photo" />
+                    </Link>
                 </div>
                 <div className="cardItemText">
                     <div className="cardLine">

@@ -21,7 +21,7 @@
     padding: 0;
 }
 
-#addToCartButton {
+.addToCartButton {
     background-color: #FFD814;
     border: 1px solid #FCD200;
     border-radius: 100px;
@@ -40,3 +40,28 @@
     display: flex;
 }
 
+.quantityLabel {
+    position: relative;
+    top: 2px;
+}
+
+
+.cartFormSelect {
+    width: 40px;
+    border-color: #D5D9D9;
+    border-radius: 6px;
+    color: #0F1111;
+    background: #F0F2F2;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+}
+
+.cartFormSelect:hover {
+    cursor: pointer;
+}
+
+.cartFormSelect:focus {
+    border-color:#007185;
+    box-shadow: 0 0 0 3px #C8F3FA;
+    background: #EDFDFF;
+    outline: none;
+}

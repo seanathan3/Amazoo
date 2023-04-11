@@ -8,14 +8,14 @@ import { fetchCartItems } from '../../store/cartItemReducer';
 const CartButton = () => {
     const dispatch = useDispatch();
     const cartItems = useSelector(state => Object.values(state.cartItems));
-    const userId = useSelector(state => state.session.user.id)
+    const userId = useSelector(state => state?.session?.user?.id)
 
 
     useEffect(() => {
         if (userId) {
             dispatch(fetchCartItems(userId));
         }
-    }, [userId])
+    }, [userId, dispatch])
 
     function calcTotalItems(cartItemsArr) {
         let output = 0;

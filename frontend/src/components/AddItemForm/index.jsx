@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Price from "../Price";
-import QuantitySelector from "../QuantitySelector";
 import './addItemForm.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -10,7 +9,7 @@ import { createCartItem } from "../../store/cartItemReducer";
 const AddItemForm = ({price}) => {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
-    const userId = useSelector(state => state.session.user.id);
+    const userId = useSelector(state => state?.session?.user?.id);
     let { itemId } = useParams();
 
     useEffect(() => {
@@ -64,7 +63,7 @@ const AddItemForm = ({price}) => {
                     </div>
 
                     <br />
-                    <button id="addToCartButton">Add to Cart</button>
+                    <button className="addToCartButton">Add to Cart</button>
                 </form>
             </div>
     </>

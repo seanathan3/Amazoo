@@ -3,6 +3,7 @@ import csrfFetch from './csrf'
 const RECEIVE_CART_ITEMS = 'cart_items/RECEIVE_CART_ITEMS';
 const RECEIVE_CART_ITEM = 'cart_items/RECEIVE_CART_ITEM';
 const REMOVE_CART_ITEM = 'cart_items/REMOVE_CART_ITEM';
+const REMOVE_ALL_CART_ITEMS = 'cart_items/REMOVE_ALL_CART_ITEMS'
 
 export const receiveCartItems = (cartItems) => ({
     type: RECEIVE_CART_ITEMS,
@@ -18,6 +19,10 @@ export const removeCartItem = (cartItemId) => ({
     type: REMOVE_CART_ITEM,
     cartItemId
 })
+
+export const removeAllCartItems = () => ({
+    type: REMOVE_ALL_CART_ITEMS
+}) 
 
 export const fetchCartItems = (userId) => async dispatch => {
     const res = await csrfFetch(`/api/users/${userId}/cart_items`);
@@ -62,6 +67,8 @@ const cartItemReducer = (state = {}, action) => {
         case REMOVE_CART_ITEM:
             delete newState[action.cartItemId];
             return newState;
+        case REMOVE_ALL_CART_ITEMS:
+            return { }
         default:
             return state;
     }
