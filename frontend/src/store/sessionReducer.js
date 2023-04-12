@@ -1,5 +1,5 @@
 import csrfFetch, { storeCSRF } from './csrf'
-
+import { transferCartItems } from './cartItemReducer';
 const SET_CURRENT_USER = 'session/SET_CURRENT_USER';
 const REMOVE_CURRENT_USER = 'session/REMOVE_CURRENT_USER';
 
@@ -12,7 +12,7 @@ export const removeSessionUser = () => ({
     type: REMOVE_CURRENT_USER
 })
 
-export const login = user => async dispatch => {
+export const login = user => async (dispatch, getState) => {
     const { email, password } = user
     const res = await csrfFetch('api/session', {
         method: 'POST',
@@ -21,6 +21,8 @@ export const login = user => async dispatch => {
     const data = await res.json();
     storeCurrentUser(data.user);
     dispatch(setSessionUser(data.user));
+    
+    dispatch(transferCartItems);
     return res
 }
 

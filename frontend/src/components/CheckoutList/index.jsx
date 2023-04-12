@@ -6,6 +6,8 @@ import CheckoutCard from "./CheckoutCard";
 import { formatPrice } from "../../utils/utils";
 import { Redirect } from "react-router-dom";
 import { deleteCartItem } from "../../store/cartItemReducer";
+import { calcTotalItems } from "../../utils/utils";
+import { calcSubtotal } from "../../utils/utils";
 
 const CheckoutList = () => {
     const dispatch = useDispatch();
@@ -21,26 +23,8 @@ const CheckoutList = () => {
         }
     }, [userId, dispatch])
 
-    function calcSubtotal(cartItemsArr) {
-        let total = 0;
-        let copy = cartItems.slice();
-        copy.forEach(cartItem => {
-            total += cartItem.quantity * cartItem.price
-        });
-        return total;
-    }
-
-    function calcItems(cartItemsArr) {
-        let count = 0
-        let copy = cartItems.slice();
-        copy.forEach(cartItem => {
-            count += cartItem.quantity
-        })
-        return count
-    }
-
     function handleClick(e) {
-        setCount(calcItems(cartItems))
+        setCount(calcTotalItems(cartItems))
         e.preventDefault();
         let ids = cartItems.map(cartItem => {
             return cartItem.id
@@ -89,7 +73,7 @@ const CheckoutList = () => {
 
                         <div id="subtotalContainer">
                             Subtotal: 
-                            ({calcItems(cartItems)} items): &nbsp;
+                            ({calcTotalItems(cartItems)} items): &nbsp;
 
                             <span className="bold">
                                 ${formatPrice(calcSubtotal(cartItems))}.00
@@ -111,7 +95,7 @@ const CheckoutList = () => {
                     </div>
                     <div id="purchaseSubtotal">
                         Subtotal: 
-                        ({calcItems(cartItems)} items):
+                        ({calcTotalItems(cartItems)} items):
 
                         <div className="bold">
                             ${formatPrice(calcSubtotal(cartItems))}.00

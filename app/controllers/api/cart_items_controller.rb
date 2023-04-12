@@ -8,7 +8,13 @@ class Api::CartItemsController < ApplicationController
     end
 
     def create
-        @cart_item = CartItem.new(cart_item_params)
+        @cart_item = CartItem.find_by(user_id: params[:user_id], item_id: params[:item_id])
+        if @cart_item
+            @cart_item.quantity += params[:quantity]
+        else
+            @cart_item = CartItem.new(cart_item_params)
+        end
+
         if @cart_item.save
             render :show
         else
@@ -29,6 +35,25 @@ class Api::CartItemsController < ApplicationController
         @cart_item = CartItem.find(params[:id])
         @cart_item.destroy
         render json: { message: 'successfully deleted'}
+    end
+
+    def transfer
+        # debugger
+        # params[:cart_items]
+
+        params[:cart_items].each do |cart_item_param|
+            cart_item = CartItem.find_by(user_id: current_user.id, item_id: cart_item_param[:item_id])
+            if cart_item
+                cart_item.quantity += cart_item_param.quantity
+            else
+                cart_item = CartItem.new(cart_item_param.permit(:item_id, :quantity))
+                cart_item.user_id = current_user.id
+            end
+
+            cart_item.save
+        end
+
+
     end
 
     private

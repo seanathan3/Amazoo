@@ -18,3 +18,20 @@ export function formatPrice(price) {
 
     return finalStringArr.slice(0, finalStringArr.length - 1).join('')
 }
+
+export function calcTotalItems(cartItemsArr) {
+    let output = 0;
+    for (let i = 0; i < cartItemsArr.length; i++) {
+        output += cartItemsArr[i].quantity
+    }
+    return output
+}
+
+export function calcSubtotal(cartItemsArr) {
+    if (!cartItemsArr) return null
+    let total = 0;
+    cartItemsArr.forEach(cartItem => {
+        total += cartItem.quantity * cartItem.price
+    });
+    return total;
+}

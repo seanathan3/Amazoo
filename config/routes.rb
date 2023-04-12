@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:show, :create, :destroy]
     resources :items, only: [:index, :show]
+    post 'cart_items/transfer', to: 'cart_items#transfer'
     resources :cart_items, only: [:create, :update, :destroy]
   end
   

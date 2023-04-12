@@ -7,6 +7,7 @@ import ItemIndex from "./components/ItemIndex"
 import ItemShow from "./components/ItemShow";
 import CheckoutList from "./components/CheckoutList";
 import OrderMessage from "./components/OrderMessage";
+import ItemAddedMessage from "./components/ItemAddedMessage";
 
 function App() {
   const currentUser = useSelector(state => state.session.user);
@@ -49,6 +50,10 @@ function App() {
 
           <Route path="/orderMessage/:count">
             <OrderMessage />
+          </Route>
+
+          <Route path="/itemAddedMessage">
+            <ItemAddedMessage />
           </Route>
 
         </Route>

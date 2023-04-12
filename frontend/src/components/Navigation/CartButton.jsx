@@ -4,6 +4,7 @@ import cartIcon from '../../assets/cart.png'
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchCartItems } from '../../store/cartItemReducer';
+import { calcTotalItems } from '../../utils/utils';
 
 const CartButton = () => {
     const dispatch = useDispatch();
@@ -16,14 +17,6 @@ const CartButton = () => {
             dispatch(fetchCartItems(userId));
         }
     }, [userId, dispatch])
-
-    function calcTotalItems(cartItemsArr) {
-        let output = 0;
-        for (let i = 0; i < cartItemsArr.length; i++) {
-            output += cartItemsArr[i].quantity
-        }
-        return output
-    }
 
     return (
         <>

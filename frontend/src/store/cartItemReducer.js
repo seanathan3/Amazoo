@@ -39,12 +39,18 @@ export const createCartItem = (cartItem) => async dispatch => {
     dispatch(receiveCartItem(data))
 }
 
-export const deleteCartItem = (cartItemId) => async dispatch => {
-    const res = await csrfFetch(`/api/cart_items/${cartItemId}`, {
-        method: 'DELETE'
-    });
-    const data = await res.json();
-    dispatch(removeCartItem(cartItemId))
+export const deleteCartItem = (cartItemId) => async (dispatch, getState) => {
+    const user = getState().session.user;
+    if (user) {
+        const res = await csrfFetch(`/api/cart_items/${cartItemId}`, {
+            method: 'DELETE'
+        });
+        const data = await res.json();
+    }
+    dispatch(removeCartItem(cartItemId));
+    if (!user) {
+        storeCartItems(getState().cartItems);
+    }
 }
 
 export const updateCartItem = (cartItem) => async dispatch => {
@@ -56,7 +62,39 @@ export const updateCartItem = (cartItem) => async dispatch => {
     dispatch(receiveCartItem(data));
 }
 
-const cartItemReducer = (state = {}, action) => {
+export const addCartItemToLS = (cartItem) => (dispatch, getState) => {
+    const prevState = getState();
+    const currentItem = prevState.cartItems[cartItem.id];
+    if (currentItem) {
+        cartItem.quantity += currentItem.quantity;
+    }
+    dispatch(receiveCartItem(cartItem));
+    storeCartItems(getState().cartItems);
+}
+
+export const transferCartItems = async (dispatch, getState) => {
+    let { cartItems } = getState();
+    cartItems = Object.values(cartItems);
+    cartItems = cartItems.map(cartItem => {
+        delete cartItem.id;
+        return cartItem;
+    });
+    const res = await csrfFetch('/api/cart_items/transfer', {
+        method: 'POST',
+        body: JSON.stringify({cartItems})
+    });
+    dispatch(removeAllCartItems());
+    storeCartItems(null);
+}
+
+const storeCartItems = cartItems => {
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+}
+
+let initialState = JSON.parse(localStorage.getItem("cart"));
+initialState = initialState ? initialState : {}
+
+const cartItemReducer = (state = initialState, action) => {
     let newState = { ...state }
     switch (action.type) {
         case RECEIVE_CART_ITEMS:
