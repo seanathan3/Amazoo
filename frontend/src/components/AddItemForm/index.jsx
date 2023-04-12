@@ -4,12 +4,14 @@ import './addItemForm.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { createCartItem } from "../../store/cartItemReducer";
+import { updateCartItem } from "../../store/cartItemReducer";
 
 
 const AddItemForm = ({price}) => {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(1);
     const userId = useSelector(state => state?.session?.user?.id);
+    const cartItems = useSelector(state => Object.values(state?.cartItems))
     let { itemId } = useParams();
 
     useEffect(() => {
@@ -18,12 +20,42 @@ const AddItemForm = ({price}) => {
 
     function handleSubmit(e) {
         e.preventDefault();
-        let newItem = {
-            quantity: quantity,
-            userId: userId,
-            itemId: parseInt(itemId)
+        let dup = checkForDupes(cartItems, userId, itemId)
+        console.log(dup)
+        if (dup) {
+            let myQuantity = parseInt(quantity) + dup.quantity
+            let newItem = {
+                id: dup.id,
+                quantity: myQuantity,
+                userId: userId,
+                itemId: parseInt(itemId)
+            }
+            dispatch(updateCartItem(newItem))
+        } else {
+            let newItem = {
+                quantity: quantity,
+                userId: userId,
+                itemId: parseInt(itemId)
+            }
+            dispatch(createCartItem(newItem))
         }
-        dispatch(createCartItem(newItem))
+
+    }
+
+    function checkForDupes(objArr, myUserId, myItemId) {
+        let output = false
+        objArr.forEach(obj => {
+            console.log(obj.userId === myUserId)
+            console.log(obj.itemId === parseInt(myItemId))
+            console.log(parseInt(obj.itemId))
+            console.log(parseInt(myItemId))
+            console.log('------')
+            if (obj.userId === myUserId && obj.itemId === parseInt(myItemId)) {
+                console.log('true!')
+                output = obj
+            }
+        })
+        return output
     }
 
     return (

@@ -7,6 +7,21 @@ const OrderMessage = () => {
     const user = useSelector(state => state?.session?.user)
     const { count } = useParams();
 
+    const months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sept',
+        'Oct',
+        'Nov',
+        'Dec'
+    ]
+
     return(
         <div id="orderMessageContainer">
             <div id="orderMessageIcon">
@@ -26,7 +41,7 @@ const OrderMessage = () => {
                 {count} items will be shipped to {user?.name} by Amazoo.com.
                 </div>
                 <div className="bold">
-                    Guaranteed delivery: <span className="green">Jan. 12, 2054</span>
+                    Guaranteed delivery: <span className="green">{months[Math.floor(Math.random() * months.length)]}. {Math.floor(Math.random() * 29)}, {2050 + (Math.floor(Math.random() * 50))}</span>
                 </div>
             </div>
 
