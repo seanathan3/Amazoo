@@ -61,7 +61,6 @@ const AddItemForm = ({price}) => {
         let output = false
         objArr.forEach(obj => {
             if (obj.userId === myUserId && obj.itemId === parseInt(myItemId)) {
-                console.log('true!')
                 output = obj
             }
         })

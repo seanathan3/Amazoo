@@ -27,11 +27,18 @@ export function calcTotalItems(cartItemsArr) {
     return output
 }
 
-export function calcSubtotal(cartItemsArr) {
-    if (!cartItemsArr) return null
+export function calcSubtotal(cartItemsArr, itemsArr) {
+    if (!cartItemsArr || !itemsArr) return null
     let total = 0;
     cartItemsArr.forEach(cartItem => {
-        total += cartItem.quantity * cartItem.price
+        let associated_item = null;
+        if (itemsArr.length === 0) return 0
+        itemsArr.forEach(item => {
+            if (cartItem.itemId === item.id) {
+                associated_item = item
+            }
+        })
+        total += cartItem.quantity * associated_item.price
     });
     return total;
 }

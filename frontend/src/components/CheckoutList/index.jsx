@@ -8,31 +8,41 @@ import { Redirect } from "react-router-dom";
 import { deleteCartItem } from "../../store/cartItemReducer";
 import { calcTotalItems } from "../../utils/utils";
 import { calcSubtotal } from "../../utils/utils";
+import { fetchItems } from "../../store/itemReducer";
+import sleepingPuppy from '../../assets/dog-sleeping.png'
 
 const CheckoutList = () => {
     const dispatch = useDispatch();
     const userId = useSelector(state => state?.session?.user?.id)
     const cartItems = useSelector(state => Object.values(state.cartItems))
+    const items = useSelector(state => Object.values(state.items))
     const [referrer, setReferrer] = useState(false)
-    const [count, setCount] = useState(0)
 
     useEffect(() => {
         if (userId) {
             dispatch(fetchCartItems(userId))
             calcSubtotal();
+        } else {
+            dispatch(fetchItems());
         }
     }, [userId, dispatch])
 
     function handleClick(e) {
-        setCount(calcTotalItems(cartItems))
         e.preventDefault();
-        let ids = cartItems.map(cartItem => {
-            return cartItem.id
-        })
-        ids.forEach(id => {
-            dispatch(deleteCartItem(id))
-        })
-        setReferrer(true)
+
+        if (userId) {
+            (calcTotalItems(cartItems))
+            let num = calcTotalItems(cartItems)
+            let ids = cartItems.map(cartItem => {
+                return cartItem.id
+            })
+            ids.forEach(id => {
+                dispatch(deleteCartItem(id))
+            })
+            setReferrer(`/orderMessage/${num}`)
+        } else {
+            setReferrer('/login')
+        }
     }
 
     if (cartItems.length === 0) {
@@ -41,6 +51,7 @@ const CheckoutList = () => {
                 <div id="checkoutListMasterFixed">
                     <div id="checkoutListItems2">
                         <div id="emptyCartMsg">Your Amazoo Cart is empty</div>
+                        <img id="fox" src={sleepingPuppy} alt="dog" />
                     </div>
                 </div>
             </>
@@ -48,7 +59,7 @@ const CheckoutList = () => {
     }
 
     if (referrer) {
-        return <Redirect to={`/orderMessage/${count}`} />
+        return <Redirect to={referrer} />
     }
 
     return (
@@ -76,8 +87,7 @@ const CheckoutList = () => {
                             ({calcTotalItems(cartItems)} items): &nbsp;
 
                             <span className="bold">
-                                ${formatPrice(calcSubtotal(cartItems))}.00
-
+                                ${formatPrice(calcSubtotal(cartItems, items))}.00
                             </span>
                         </div>
                     </div>
@@ -98,11 +108,11 @@ const CheckoutList = () => {
                         ({calcTotalItems(cartItems)} items):
 
                         <div className="bold">
-                            ${formatPrice(calcSubtotal(cartItems))}.00
+                            ${formatPrice(calcSubtotal(cartItems, items))}.00
 
                         </div>
                     </div>
-                    <button onClick={handleClick} className="addToCartButton" id="finalCheckoutButton">Proceed to checkout</button>
+                    <button onClick={handleClick} className="addToCartButton" id="finalCheckoutButton">Purchase</button>
                 </div>
 
             </div>

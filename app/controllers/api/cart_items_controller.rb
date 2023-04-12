@@ -44,7 +44,7 @@ class Api::CartItemsController < ApplicationController
         params[:cart_items].each do |cart_item_param|
             cart_item = CartItem.find_by(user_id: current_user.id, item_id: cart_item_param[:item_id])
             if cart_item
-                cart_item.quantity += cart_item_param.quantity
+                cart_item.quantity += cart_item_param[:quantity]
             else
                 cart_item = CartItem.new(cart_item_param.permit(:item_id, :quantity))
                 cart_item.user_id = current_user.id

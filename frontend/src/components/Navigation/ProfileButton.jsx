@@ -1,12 +1,13 @@
 import { useSelector, useDispatch } from "react-redux"
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { logout } from "../../store/sessionReducer"
 import { removeAllCartItems } from "../../store/cartItemReducer"
 import { Modal } from "../../context/Modal"
 import './navigation.css';
 
 const ProfileButton = () => {
+    const history = useHistory();
     const currentUser = useSelector(state => state.session.user)
     const [menuOptions, setMenuOptions] = useState([]);
     const [userText, setUserText] = useState('');
@@ -23,9 +24,11 @@ const ProfileButton = () => {
     function handleLogOut(e) {
         e.preventDefault();
         dispatch(removeAllCartItems())
-        console.log('logging out')
         dispatch(logout());
         setShowModal(false);
+        setTimeout(e => {
+            history.push('/login')
+        }, 100)
     };
 
 

@@ -1,4 +1,5 @@
 import csrfFetch from './csrf'
+import {receiveItems} from '../store/itemReducer';
 
 const RECEIVE_CART_ITEMS = 'cart_items/RECEIVE_CART_ITEMS';
 const RECEIVE_CART_ITEM = 'cart_items/RECEIVE_CART_ITEM';
@@ -27,7 +28,8 @@ export const removeAllCartItems = () => ({
 export const fetchCartItems = (userId) => async dispatch => {
     const res = await csrfFetch(`/api/users/${userId}/cart_items`);
     const data = await res.json();
-    dispatch(receiveCartItems(data))
+    dispatch(receiveCartItems(data.cartItems));
+    dispatch(receiveItems(data.items));
 }
 
 export const createCartItem = (cartItem) => async dispatch => {
@@ -53,13 +55,17 @@ export const deleteCartItem = (cartItemId) => async (dispatch, getState) => {
     }
 }
 
-export const updateCartItem = (cartItem) => async dispatch => {
-    const res = await csrfFetch(`/api/cart_items/${cartItem.id}`, {
-        method: 'PATCH',
-        body: JSON.stringify(cartItem)
-    });
-    const data = await res.json();
-    dispatch(receiveCartItem(data));
+export const updateCartItem = (cartItem) => async (dispatch, getState) => {
+    const currentUser = getState().session?.user;
+    if (currentUser) {
+        const res = await csrfFetch(`/api/cart_items/${cartItem.id}`, {
+            method: 'PATCH',
+            body: JSON.stringify(cartItem)
+        });
+        const data = await res.json();
+    }
+    dispatch(receiveCartItem(cartItem));
+    storeCartItems(getState().cartItems)
 }
 
 export const addCartItemToLS = (cartItem) => (dispatch, getState) => {
@@ -74,8 +80,7 @@ export const addCartItemToLS = (cartItem) => (dispatch, getState) => {
 
 export const transferCartItems = async (dispatch, getState) => {
     let { cartItems } = getState();
-    cartItems = Object.values(cartItems);
-    cartItems = cartItems.map(cartItem => {
+    cartItems = Object.values(cartItems).map(cartItem => {
         delete cartItem.id;
         return cartItem;
     });

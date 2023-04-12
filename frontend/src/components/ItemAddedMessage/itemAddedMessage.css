@@ -27,9 +27,12 @@
 #itemAddedCartCard {
     background-color: white;
     width: 327px;
-    height: 152px;
-    padding: 18px;
+    height: 132px;
+    padding: 28px 18px;
     margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .verticalDivider {
@@ -61,3 +64,16 @@
     bottom: 6px;
 }
 
+#itemAddedCartButton {
+    width: 315px;
+    border-radius: 8px;
+}
+
+#itemAddedCartButton:hover {
+    background-color: #F7CA00;
+}
+
+#itemAddedHomeButton {
+    width: 315px;
+    border-radius: 8px;
+}

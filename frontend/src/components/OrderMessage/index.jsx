@@ -35,13 +35,13 @@ const OrderMessage = () => {
                     An email confirmation has <span>not</span> been sent to you.
                 </div>
                 <div className="bold">
-                    Order Number: {Math.floor(10000 * Math.random())}
+                    Order Number: {10000 + Math.floor(90000 * Math.random())}
                 </div>
                 <div>
                 {count} items will be shipped to {user?.name} by Amazoo.com.
                 </div>
                 <div className="bold">
-                    Guaranteed delivery: <span className="green">{months[Math.floor(Math.random() * months.length)]}. {Math.floor(Math.random() * 29)}, {2050 + (Math.floor(Math.random() * 50))}</span>
+                    Guaranteed delivery: <span className="green">{months[Math.floor(Math.random() * months.length)]}. {1 + Math.floor(Math.random() * 28)}, {2050 + (Math.floor(Math.random() * 50))}</span>
                 </div>
             </div>
 

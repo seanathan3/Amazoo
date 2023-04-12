@@ -21,6 +21,10 @@ function App() {
           <LoginFormPage />
         </Route>
 
+        <Route path="/login/checkout">
+          <LoginFormPage redirecting={true} />
+        </Route>
+
         <Route path="/signup">
           <SignUpFormPage />
         </Route>

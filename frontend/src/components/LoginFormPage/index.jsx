@@ -6,7 +6,7 @@ import './LoginForm.css';
 import blackLogo from '../../assets/amazoo_black.png'
 import alert from '../../assets/alert.png'
 
-const LoginFormPage = () => {
+const LoginFormPage = ({redirecting}) => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user)
 
@@ -15,7 +15,11 @@ const LoginFormPage = () => {
     const [error, setError] = useState('')
 
     if (sessionUser) {
-        return <Redirect to="/" />
+        if (redirecting) {
+            return <Redirect to="/" />
+        } else {
+            return <Redirect to="/" />
+        }
     }
 
     const handleSubmit = (e) => {
