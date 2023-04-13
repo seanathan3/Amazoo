@@ -18,7 +18,7 @@ const DisplayCard = ({item}) => {
                             <div id="cardName" key="name">{item.name}</div>
                         </Link>
                         <span id="cardTypeText">class </span>
-                        <Link to={`category/${item.animalType}`}>
+                        <Link to={`/category/${item.animalType}`}>
                             <span id="cardAnimalType" key="animalType">{item.animalType}</span>
                         </Link>
                     </div>

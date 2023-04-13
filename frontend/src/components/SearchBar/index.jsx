@@ -1,11 +1,19 @@
 import { useState } from 'react';
 import './searchBar.css';
+import { useDispatch } from 'react-redux';
+import { fetchSelectItems } from '../../store/itemReducer';
+import { useHistory } from 'react-router-dom';
 
 const SearchBar = () => {
     const [query, setQuery] = useState('')
+    const history = useHistory();
 
     function handleSubmit(e) {
         e.preventDefault();
+        if (query !== '') {
+            history.push(`/search/${query}`)
+            setQuery('');
+        }
     }
 
     return (

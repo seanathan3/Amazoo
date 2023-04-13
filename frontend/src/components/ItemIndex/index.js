@@ -4,16 +4,22 @@ import { fetchItems } from "../../store/itemReducer";
 import DisplayCard from "./DisplayCard";
 import './items.css'
 import { useParams } from "react-router-dom";
+import { fetchSelectItems } from "../../store/itemReducer";
 
-const FormIndex = ({category}) => {
+const FormIndex = () => {
     const { categoryName } = useParams();
+    const { query } = useParams();
 
     const dispatch = useDispatch();
     const items = useSelector(state => Object.values(state.items));
 
     useEffect(() => {
-        dispatch(fetchItems())
-    }, [dispatch])
+        if (query) {
+            dispatch(fetchSelectItems(query))
+        } else {
+            dispatch(fetchItems())
+        }
+    }, [dispatch, query])
 
     function itemSelection() {
         if (categoryName) {

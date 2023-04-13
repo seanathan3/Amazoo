@@ -11,8 +11,7 @@ class Api::ItemsController < ApplicationController
     end
 
     def search
-        debugger
-        @items  = Item.where("name === 'Yak'")
+        @items  = Item.where("name iLIKE '%#{params[:query]}%' OR animal_type iLIKE '%#{params[:query]}%'")
         render :index
     end
 

@@ -40,6 +40,10 @@ function App() {
             <ItemIndex />
           </Route>
 
+          <Route path="/search/:query">
+            <ItemIndex />
+          </Route>
+
           <Route path="/category/:categoryName">
             <ItemIndex />
           </Route>

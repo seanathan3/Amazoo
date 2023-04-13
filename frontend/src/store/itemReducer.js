@@ -2,6 +2,7 @@ import csrfFetch from "./csrf";
 
 const RECEIVE_ITEMS = 'items/RECEIVE_ITEMS';
 const RECEIVE_ITEM = 'items/RECEIVE_ITEM';
+const REMOVE_ALL_ITEMS = 'items/REMOVE_ALL_ITEMS'
 
 export const receiveItems = (items) => ({
     type: RECEIVE_ITEMS,
@@ -13,10 +14,21 @@ export const receiveItem = (item) => ({
     item
 })
 
+export const removeAllItems = () =>  ({
+    type: REMOVE_ALL_ITEMS
+})
+
 export const fetchItems = () => async dispatch => {
     const res = await csrfFetch('/api/items');
     const data = await res.json();
     dispatch(receiveItems(data))
+}
+
+export const fetchSelectItems = (query) => async dispatch => {
+    const res = await csrfFetch(`/api/items/search/${query}`);
+    const data = await res.json();
+    dispatch(removeAllItems())
+    dispatch(receiveItems(data));
 }
 
 export const fetchItem = (itemId) => async dispatch => {
@@ -37,6 +49,8 @@ const itemReducer = (state={}, action) => {
             return nextState;
         case RECEIVE_ITEMS:
             return { ...state, ...action.items};
+        case REMOVE_ALL_ITEMS:
+            return { };
         default:
             return state;
     }

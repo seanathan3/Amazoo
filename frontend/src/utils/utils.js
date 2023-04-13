@@ -38,7 +38,7 @@ export function calcSubtotal(cartItemsArr, itemsArr) {
                 associated_item = item
             }
         })
-        total += cartItem.quantity * associated_item.price
+        total += cartItem.quantity * associated_item?.price
     });
     return total;
 }

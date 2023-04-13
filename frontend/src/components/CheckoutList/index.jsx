@@ -19,11 +19,10 @@ const CheckoutList = () => {
     const [referrer, setReferrer] = useState(false)
 
     useEffect(() => {
+        dispatch(fetchItems())
         if (userId) {
             dispatch(fetchCartItems(userId))
             calcSubtotal();
-        } else {
-            dispatch(fetchItems());
         }
     }, [userId, dispatch])
 

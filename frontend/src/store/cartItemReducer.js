@@ -65,7 +65,9 @@ export const updateCartItem = (cartItem) => async (dispatch, getState) => {
         const data = await res.json();
     }
     dispatch(receiveCartItem(cartItem));
-    storeCartItems(getState().cartItems)
+    if (!currentUser) {
+        storeCartItems(getState().cartItems)
+    }
 }
 
 export const addCartItemToLS = (cartItem) => (dispatch, getState) => {

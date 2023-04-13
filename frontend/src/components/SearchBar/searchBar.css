@@ -27,6 +27,8 @@
     height: 38px;
 }
 
+
+
 #searchBarContainer:focus {
     border: 2px solid #F90;
 }
