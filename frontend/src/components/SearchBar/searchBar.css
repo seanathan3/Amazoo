@@ -25,6 +25,8 @@
     padding: 0;
     width: 740px;
     height: 38px;
+    position:relative;
+    left: 100px;
 }
 
 

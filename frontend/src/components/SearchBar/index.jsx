@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import './searchBar.css';
-import { useDispatch } from 'react-redux';
-import { fetchSelectItems } from '../../store/itemReducer';
 import { useHistory } from 'react-router-dom';
 
 const SearchBar = () => {

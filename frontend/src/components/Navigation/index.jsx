@@ -4,6 +4,8 @@ import { NavLink, Link } from 'react-router-dom';
 import whiteLogo from '../../assets/amazoo_white.png'
 import CartButton from './CartButton';
 import SearchBar from '../SearchBar';
+import githubLogo from '../../assets/github-white.png';
+import linkedInLogo from '../../assets/linked-in.png'
 
 const Navigation = () => {
 
@@ -18,6 +20,16 @@ const Navigation = () => {
                     </div>
                     <SearchBar />
                     <div id="rightNavLinks">
+                        <div id="githubIcon" className="aboutLinkContainer">
+                            <a href="https://github.com/sean-a99/Amazoo" target="_blank">
+                                <img className="aboutLink" src={githubLogo} alt="github" />
+                            </a>
+                        </div>
+                        <div id="linkedInIcon" className="aboutLinkContainer">
+                            <a href="https://www.linkedin.com/in/sean-abbas/" target="_blank">
+                                <img className="aboutLink" src={linkedInLogo} alt="linkedin" />
+                            </a>
+                        </div>
                         <ProfileButton />
                         <CartButton />
                     </div>
@@ -35,8 +47,6 @@ const Navigation = () => {
                     <NavLink to="/category/marsupial">Marsupial</NavLink>
                     <NavLink to="/category/rodent">Rodent</NavLink>
                     <NavLink to="/category/reptile">Reptile</NavLink>
-
-
                 </div>
 
             </div>
