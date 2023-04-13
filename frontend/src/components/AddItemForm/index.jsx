@@ -16,7 +16,7 @@ const AddItemForm = ({price}) => {
     let { itemId } = useParams();
 
     if (referrer) {
-        return <Redirect to="/itemAddedMessage" />
+        return <Redirect to={`/itemAddedMessage/${itemId}`} />
     }
 
     function handleSubmit(e) {

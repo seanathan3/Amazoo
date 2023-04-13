@@ -1,13 +1,27 @@
 import './itemAddedMessage.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { calcTotalItems, calcSubtotal, formatPrice } from '../../utils/utils';
 import { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { fetchCartItems } from '../../store/cartItemReducer';
+import { fetchItems } from '../../store/itemReducer';
 
 const ItemAddedMessage = () => {
     const cartItems = useSelector(state =>  Object.values(state.cartItems));
+    const dispatch = useDispatch();
     const items = useSelector(state => Object.values(state.items))
     const [referrer, setReferrer] = useState(null);
+    const { itemId } = useParams();
+    const addedItem = useSelector(state => state.items[itemId])
+    const userId = useSelector(state => state?.session?.user?.id)
+
+    useEffect(() => {
+        if (userId) {
+            dispatch(fetchCartItems(userId))
+        }
+        dispatch(fetchItems())
+    }, [itemId, userId])
 
     if (referrer) {
         return <Redirect to={referrer} />
@@ -16,8 +30,21 @@ const ItemAddedMessage = () => {
     return(
         <>
             <div id="itemAddedMaster">
-                <div id="itemAddedProductCard">
 
+                <div id="itemAddedProductCard">
+                    <img src={addedItem?.photoUrl} alt="animal-pic" />
+
+                    <div id="productCartText">
+                        <div id="itemAddedToCart">
+                            <div id="checkIcon" style={{color: 'green', fontSize: '18px'}} >
+                                <i className="fa-solid fa-circle-check"></i>
+                            </div>
+                            <div id="addedToCartCardText">Added to Cart</div>
+                        </div>
+                        <div><span className="bold">Name: </span>{addedItem?.name}</div>
+                        <div><span className="bold">Type: </span>{addedItem?.animalType}</div>
+                    </div>
+                
                 </div>
 
                 <div id="itemAddedShippingCard">

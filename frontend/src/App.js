@@ -60,7 +60,7 @@ function App() {
             <OrderMessage />
           </Route>
 
-          <Route path="/itemAddedMessage">
+          <Route path="/itemAddedMessage/:itemId">
             <ItemAddedMessage />
           </Route>
 
