@@ -3,6 +3,7 @@ import './navigation.css';
 import { NavLink, Link } from 'react-router-dom';
 import whiteLogo from '../../assets/amazoo_white.png'
 import CartButton from './CartButton';
+import SearchBar from '../SearchBar';
 
 const Navigation = () => {
 
@@ -15,6 +16,7 @@ const Navigation = () => {
                             <img className="logoPic" src={whiteLogo} alt="Pic" />
                         </Link>
                     </div>
+                    <SearchBar />
                     <div id="rightNavLinks">
                         <ProfileButton />
                         <CartButton />

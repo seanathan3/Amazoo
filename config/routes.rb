@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       resources :cart_items, only: :index
     end
     resource :session, only: [:show, :create, :destroy]
+    get 'items/search/:query', to: 'items#search'
     resources :items, only: [:index, :show]
     post 'cart_items/transfer', to: 'cart_items#transfer'
     resources :cart_items, only: [:create, :update, :destroy]

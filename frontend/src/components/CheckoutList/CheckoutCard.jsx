@@ -27,7 +27,7 @@ const CheckoutCard = ({cartItem}) => {
             ...cartItem,
             quantity: parseInt(quantity)
         }
-        if (parseInt(quantity)) {
+        if (parseInt(quantity) >= 1) {
 
             setInvalidInput(false);
             dispatch(updateCartItem(newCartItem))

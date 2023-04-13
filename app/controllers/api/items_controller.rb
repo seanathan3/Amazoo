@@ -10,4 +10,10 @@ class Api::ItemsController < ApplicationController
         render :show
     end
 
+    def search
+        debugger
+        @items  = Item.where("name === 'Yak'")
+        render :index
+    end
+
 end
