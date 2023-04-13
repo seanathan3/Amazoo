@@ -74,3 +74,11 @@ h3 {
     margin: 8px 0 15px 0;
 }
 
+#showRating {
+    margin: 0;
+}
+
+#showNumReviews {
+    position: relative;
+    bottom: 3px;
+}

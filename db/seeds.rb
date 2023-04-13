@@ -47,6 +47,7 @@
       name: 'Cougar',
       animal_type: 'Feline',
       price: 156000,
+      rating: (rand() * 5).floor() + 6,
       description: 'Cougars, also known as mountain lions, pumas, or panthers, are large cats that are native to the Americas.
       They have short, tawny fur and a long tail, and are adept at climbing trees.
       Cougars are solitary animals and are most active at dawn and dusk.
@@ -63,6 +64,7 @@
       name: 'Penguin',
       animal_type: 'Bird',
       price: 6750,
+      rating: (rand() * 5).floor() + 6,
       description: "Penguins are a group of flightless birds that are highly adapted to life in the water.
       They are found exclusively in the Southern Hemisphere, ranging from Antarctica to the coasts of South America, Africa, Australia, and New Zealand.
       There are 18 species of penguins, each with its own unique characteristics and distribution.
@@ -78,6 +80,7 @@
     komodo_dragon = Item.create!(
       name: 'Komodo Dragon',
       animal_type: 'Reptile',
+      rating: (rand() * 5).floor() + 6,
       price: 785000,
       description: "Komodo dragons are the largest living lizards and are found only on a few islands in Indonesia.
       They can grow up to 10 feet (3 meters) long and weigh over 150 pounds (70 kg).
@@ -94,6 +97,7 @@
     yak = Item.create!(
       name: 'Yak',
       animal_type: 'Bovine',
+      rating: (rand() * 5).floor() + 6,
       price: 4999,
       description: "Yaks are large, shaggy-haired mammals that are native to the Himalayan region of Central Asia.
       They are domesticated animals and have been used for transportation, meat, milk, and wool by people in the region for thousands of years.
@@ -110,6 +114,7 @@
     koala = Item.create!(
       name: 'Koala',
       animal_type: 'Marsupial',
+      rating: (rand() * 5).floor() + 6,
       price: 87000,
       description: "Koalas are native to Australia and are known for their fluffy ears, round noses, and adorable appearance.
       They are marsupials, which means that their young are born in an undeveloped state and continue to develop outside the womb in a pouch.
@@ -126,6 +131,7 @@
     t_rex = Item.create!(
       name: 'T-Rex',
       animal_type: 'Dinosaur',
+      rating: (rand() * 5).floor() + 6,
       price: 2678450,
       description: "T-rex was one of the largest meat-eating dinosaurs that ever lived, measuring up to 40 feet (12 meters) long and weighing up to 9 tons (8 metric tons).
       It lived during the Late Cretaceous period, around 68 to 66 million years ago, in what is now North America.
@@ -142,6 +148,7 @@
     jaguar = Item.create!(
       name: 'Jaguar',
       animal_type: 'Feline',
+      rating: (rand() * 5).floor() + 6,
       price: 204000,
       description: "Jaguars are the largest cats in the Americas and the third largest in the world.
       Their coat of fur is typically yellow or orange with black spots arranged in a circular pattern.
@@ -158,6 +165,7 @@
     fox = Item.create!(
       name: 'Fox',
       animal_type: 'Canine',
+      rating: (rand() * 5).floor() + 6,
       price: 95680,
       description: "Foxes are members of the Canidae family, which includes dogs, wolves, and coyotes.
       There are around 37 different species of foxes, found all over the world, in a variety of different habitats.
@@ -174,6 +182,7 @@
     bald_eagle = Item.create!(
       name: 'Bald Eagle',
       animal_type: 'Bird',
+      rating: (rand() * 5).floor() + 6,
       price: 50000,
       description: "Bald eagles are large birds of prey that live in North America and are known for their distinctive white heads and tails.
       They are not actually bald, but rather their name comes from the old English word 'balde,' which means white-headed.
@@ -190,6 +199,7 @@
     kangaroo = Item.create!(
       name: "Kangaroo",
       animal_type: "Marsupial",
+      rating: (rand() * 5).floor() + 6,
       price: 323700,
       description: "Kangaroos are marsupials that are native to Australia and are well-known for their powerful hind legs and unique hopping gait.
       They are the largest marsupials in the world, with the red kangaroo species growing up to 6 feet (1.8 meters) tall and weighing up to 200 pounds (90 kilograms).
@@ -206,6 +216,7 @@
     wolf = Item.create!(
       name: 'Wolf',
       animal_type: "Canine",
+      rating: (rand() * 5).floor() + 6,
       price: 102000,
       description: "Wolves are a species of large, carnivorous mammals that are part of the Canidae family, which also includes dogs, coyotes, and foxes.
       There are many different subspecies of wolves, which can be found in a variety of habitats around the world, from tundras to deserts to forests.
@@ -222,6 +233,7 @@
     dung_beetle = Item.create!(
       name: "Dung Beetle",
       animal_type: "Insect",
+      rating: (rand() * 5).floor() + 6,
       price: 750,
       description: "Dung beetles are a family of beetles that are known for their habit of feeding on and rolling animal dung.
       They play an important role in many ecosystems by helping to break down and recycle animal waste, which helps to fertilize the soil and reduce the spread of disease.
@@ -238,6 +250,7 @@
     leopard = Item.create!(
       name: "Leopard",
       animal_type: "Feline",
+      rating: (rand() * 5).floor() + 6,
       price: 106000,
       description: "Leopards are a large, carnivorous cat species found throughout much of Africa and Asia.
       They are known for their distinctive coat, which is covered in spots that help them to blend in with their surroundings.
@@ -254,6 +267,7 @@
     opossum = Item.create!(
       name: "Opossum",
       animal_type: "Marsupial",
+      rating: (rand() * 5).floor() + 6,
       price: 32060,
       description: "Opossums are a marsupial species native to North and South America.
       They are known for their distinctive appearance, which includes a long, pointed snout, sharp teeth, and a prehensile tail.
@@ -270,6 +284,7 @@
     orangutan = Item.create!(
       name: "Orangutan",
       animal_type: "Ape",
+      rating: (rand() * 5).floor() + 6,
       price: 206770,
       description: "Orangutans are one of the three great ape species, along with chimpanzees and gorillas.
       They are native to the rainforests of Indonesia and Malaysia on the islands of Borneo and Sumatra.
@@ -286,6 +301,7 @@
     guinea_pig = Item.create!(
       name: "Guinea Pig",
       animal_type: "Rodent",
+      rating: (rand() * 5).floor() + 6,
       price: 4500,
       description: "Guinea pigs, also known as cavies, are small domesticated rodents native to South America.
       They are social animals and prefer to live in groups or pairs.
@@ -302,6 +318,7 @@
     capybara = Item.create!(
       name: "Capybara",
       animal_type: "Rodent",
+      rating: (rand() * 5).floor() + 6,
       price: 10000000,
       description: "Capybaras are the largest rodents in the world, weighing up to 140 pounds.
       They are semi-aquatic animals and are native to South America, where they live near water sources like rivers and swamps.
@@ -318,6 +335,7 @@
     velociraptor = Item.create!(
       name: "Velociraptor",
       animal_type: "Dinosaur",
+      rating: (rand() * 5).floor() + 6,
       price: 1797000,
       description: "Velociraptors were a type of small, carnivorous dinosaur that lived during the Late Cretaceous Period, around 75-71 million years ago.
       They were about the size of a turkey, with a height of around 1.6 feet and a length of up to 6.8 feet.
@@ -334,6 +352,7 @@
     stegosaurus = Item.create!(
       name: "Stegosaurus",
       animal_type: "Dinosaur",
+      rating: (rand() * 5).floor() + 6,
       price: 2040600,
       description: "Stegosaurs were a group of herbivorous dinosaurs that lived during the Jurassic period, about 150 million years ago.
       They were characterized by their large, bony plates that ran down their backs and tails, as well as their distinctive spiked tails.
@@ -350,6 +369,7 @@
     pterodactyl = Item.create!(
       name: "Pterodactyl",
       animal_type: "Dinosaur",
+      rating: (rand() * 5).floor() + 6,
       price: 1994000,
       description: "Pterodactyls were a type of flying reptile that lived during the Late Jurassic and Early Cretaceous periods, about 145-65 million years ago.
       They were not actually dinosaurs, but belong to a group of reptiles called pterosaurs.
@@ -366,6 +386,7 @@
     bull = Item.create!(
       name: "Bull",
       animal_type: "Bovine",
+      rating: (rand() * 5).floor() + 6,
       price: 143000,
       description: "Bulls are male cattle, which are domesticated animals that have been bred for agricultural purposes for thousands of years.
       They are typically larger and more muscular than cows, which are female cattle.
@@ -382,6 +403,7 @@
     water_buffalo = Item.create!(
       name: "Water buffalo",
       animal_type: "Bovine",
+      rating: (rand() * 5).floor() + 6,
       price: 167090,
       description: "Water buffaloes are large domesticated animals that are primarily raised for their milk, meat, and hides.
       They are native to Southeast Asia, but have been introduced to other parts of the world including Africa, Europe, and South America.
@@ -398,6 +420,7 @@
     turtle = Item.create!(
       name: "Turtle",
       animal_type: "Reptile",
+      rating: (rand() * 5).floor() + 6,
       price: 76040,
       description: "Turtles are reptiles with a protective shell that encases their body and limbs.
       There are over 300 species of turtles that live on land, in freshwater, or in the ocean.
@@ -414,6 +437,7 @@
     snake = Item.create!(
       name: "Snake",
       animal_type: "Reptile",
+      rating: (rand() * 5).floor() + 6,
       price: 67000,
       description: "Snakes are elongated, legless reptiles that are found on every continent except Antarctica.
       They come in a variety of sizes, with the smallest snake measuring less than 4 inches (10 cm) and the largest measuring over 30 feet (9 meters).
@@ -430,6 +454,7 @@
     chimpanzee = Item.create!(
       name: "Chimpanzee",
       animal_type: "Ape",
+      rating: (rand() * 5).floor() + 6,
       price: 136000,
       description: "Chimpanzees are one of the closest living relatives to humans, sharing around 98% of our DNA.
       They are native to Africa, and live in a variety of habitats, including forests, savannas, and mountains.
@@ -446,6 +471,7 @@
     baboon = Item.create!(
       name: "Baboon",
       animal_type: "Ape",
+      rating: (rand() * 5).floor() + 6,
       price: 122900,
       description: "Baboons are medium to large sized primates that are found in various parts of Africa and are closely related to Old World monkeys.
       There are five species of baboons: the chacma, the Guinea, the yellow, the olive, and the hamadryas baboon.
@@ -462,6 +488,7 @@
     raven = Item.create!(
       name: "Raven",
       animal_type: "Bird",
+      rating: (rand() * 5).floor() + 6,
       price: 3200,
       description: "Ravens are large, black birds that are part of the crow family, known as Corvidae.
       There are several species of ravens, but the most common is the common raven, which is found throughout the northern hemisphere.
@@ -478,6 +505,7 @@
     hamster = Item.create!(
       name: "Hamster",
       animal_type: "Rodent",
+      rating: (rand() * 5).floor() + 6,
       price: 290,
       description: "Hamsters are small rodents that are popular pets, known for their cute and cuddly appearance.
       There are several species of hamsters, but the most common is the Syrian or Golden hamster, which is native to the Middle East.
