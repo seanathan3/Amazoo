@@ -5,7 +5,7 @@ import whiteLogo from '../../assets/amazoo_white.png'
 import CartButton from './CartButton';
 import SearchBar from '../SearchBar';
 import githubLogo from '../../assets/github-white.png';
-import linkedInLogo from '../../assets/linked-in.png'
+import linkedInLogo from '../../assets/linked-in.png';
 
 const Navigation = () => {
 

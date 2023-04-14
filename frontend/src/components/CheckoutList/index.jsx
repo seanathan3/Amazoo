@@ -111,7 +111,7 @@ const CheckoutList = () => {
 
                         </div>
                     </div>
-                    <button onClick={handleClick} className="addToCartButton" id="finalCheckoutButton">Purchase</button>
+                    <button onClick={handleClick} className="addToCartButton" id="finalCheckoutButton">Place your order</button>
                 </div>
 
             </div>

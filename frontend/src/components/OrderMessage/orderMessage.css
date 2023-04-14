@@ -1,0 +1,97 @@
+#orderMessageBackground {
+    background-color: #EAEDED;
+    width: 100%;
+    display: flex;
+    height: 700px;
+}
+
+#orderMessageContainer {
+    background: white;
+    margin: 18px;
+    padding: 20px;
+    width: 530px;
+    border-radius: 8px;
+    height:fit-content
+}
+
+#orderMessageFirstLine {
+    display: flex;
+}
+
+#orderMessageContentHeader {
+    font-family: 'Ember-bold';
+    font-size: 18px;
+    color: #007600;
+    margin-left: 8px;
+}
+
+#confirmation {
+    margin: 15px 0;
+}
+
+.horizontalDivider {
+    height: 1px;
+    border-top: 1px solid #BBBFBF;
+    margin: 10px 0;
+    width: 500px;
+}
+
+#orderMessageBackHome {
+    background: white;
+    margin: 18px 18px 18px 0;
+    padding: 20px;
+    border-radius: 8px;
+    height: 126px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#orderMessageButton:hover {
+    background-color: #F7CA00;
+    border-color: #F2C200;
+}
+
+#otherProjects {
+    background: white;
+    margin: 18px 18px 18px 0;
+    padding: 20px;
+    border-radius: 8px;
+    height: 126px;
+    width: 530px;
+}
+
+#otherProjects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#otherProjectsHeader {
+    font-size: 18px;
+    font-family: 'Ember-bold';
+    color: #f08804
+}
+
+#otherAboutLink {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+}
+
+#otherGithubIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 41px;
+    height: 42px;
+    margin: 0;
+    position: relative;
+    bottom: 3px;
+}
+
+#otherLinkedInIcon {
+    margin: 0;
+}
