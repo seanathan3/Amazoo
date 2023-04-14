@@ -63,7 +63,7 @@ const ItemAddedMessage = () => {
                         </span>
                     </div>
                     <button onClick={() => setReferrer('/checkout')} id="itemAddedCartButton" className="addToCartButton">Proceed to checkout ({calcTotalItems(cartItems)} items)</button>
-                    <button onClick={() => setReferrer('/')}id="itemAddedHomeButton" className="addToCartButton">Go to Home</button>
+                    <button onClick={() => setReferrer('/')}id="itemAddedHomeButton" className="addToCartButton">Home</button>
                 </div>
                 <div className="verticalDivider" />
             </div>
