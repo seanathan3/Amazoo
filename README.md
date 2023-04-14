@@ -1,6 +1,6 @@
 # AMAZOO
 
-Check out the Live Site!
+Check out the [Live Site](https://amazoo.onrender.com)!
 
 #### Introduction
 
