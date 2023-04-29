@@ -67,6 +67,13 @@ class User < ApplicationRecord
     has_many :cart_items,
         class_name: :CartItem,
         primary_key: :id,
-        foreign_key: :user_id
+        foreign_key: :user_id,
+        dependent: :destroy
+
+    has_many :reviews,
+        class_name: :Review,
+        primary_key: :id,
+        foreign_key: :commenter_id,
+        dependent: :destroy
 
 end
