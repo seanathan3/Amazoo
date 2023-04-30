@@ -20,6 +20,11 @@
     src: url(./fonts/Ember/AmazonEmber_Rg.ttf);
 }
 
+@font-face {
+    font-family: 'Ember-thin';
+    src: url(./fonts/Ember/AmazonEmber_Th.ttf)
+}
+
 body {
     display: flex;
     justify-content: center;

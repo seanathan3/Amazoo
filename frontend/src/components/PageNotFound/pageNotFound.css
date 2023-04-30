@@ -1,0 +1,36 @@
+#pnf-master {
+    height: 220px;
+    width: 580px;
+    margin-top: 15px;
+    color: #707070;
+    font-family: 'Ember-light';
+    position: relative;
+}
+
+#pnf-master-s {
+    height: 220px;
+    width: 100%;
+    margin-top: 15px;
+    color: #707070;
+    font-family: 'Ember-light';
+    position: relative;
+}
+
+#pnf-1 {
+    font-family: 'Ember-thin';
+    font-size: 150px;
+}
+
+#pnf-2 {
+    font-size: 48px;
+    position: relative;
+    bottom: 10px;
+    left: 10px
+}
+
+#pnf-3 {
+    font-size: 24px;
+    position: relative;
+    bottom: 5px;
+    left: 12px;
+}

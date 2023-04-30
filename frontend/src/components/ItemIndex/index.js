@@ -5,6 +5,7 @@ import DisplayCard from "./DisplayCard";
 import './items.css'
 import { useParams } from "react-router-dom";
 import { fetchSelectItems } from "../../store/itemReducer";
+import PageNotFound from "../PageNotFound";
 
 const FormIndex = () => {
     const { categoryName } = useParams();
@@ -23,6 +24,12 @@ const FormIndex = () => {
 
     function itemSelection() {
         if (categoryName) {
+
+            let presence = items.some(item => {
+                return item.animalType.toLowerCase() === categoryName.toLowerCase();
+            });
+            if (items.length !== 0 && !presence) return <PageNotFound search="true"/>
+
             return (items.map(item => {
                 if (item.animalType.toLowerCase() === categoryName.toLowerCase()) {
                     return <DisplayCard key={item.id} item={item} />
@@ -33,6 +40,17 @@ const FormIndex = () => {
                 return <DisplayCard key={item.id} item={item} />
             }))
         }
+    }
+
+    if (items.length === 0 && query) {
+        return (
+            <>
+                <div id="results">Results</div>
+                <div id="itemIndexBackground">
+                    <PageNotFound search="true"/>
+                </div>
+            </>
+        )
     }
 
 
