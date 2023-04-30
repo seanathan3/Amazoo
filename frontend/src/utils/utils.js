@@ -42,3 +42,11 @@ export function calcSubtotal(cartItemsArr, itemsArr) {
     });
     return total;
 }
+
+export function calcAverageRating(obj) {
+    let sum = 0
+    for (let key in obj) {
+        sum += obj[key].rating
+    }
+    return sum
+}

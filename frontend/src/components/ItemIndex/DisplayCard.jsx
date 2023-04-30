@@ -9,19 +9,6 @@ import rating10 from '../../assets/amazon-stars/amazon-stars-10.png';
 
 const DisplayCard = ({item}) => {
 
-    let myRating = 0
-    if (item?.rating === 10) {
-        myRating = rating10;
-    } else if (item?.rating === 9) {
-        myRating = rating9;
-    } else if (item?.rating === 8) {
-        myRating = rating8;
-    } else if (item?.rating === 7) {
-        myRating = rating7;
-    } else {
-        myRating = rating6;
-    }
-
     return (
         <>
             <div className="card">
@@ -40,8 +27,6 @@ const DisplayCard = ({item}) => {
                             <span id="cardAnimalType" key="animalType">{item.animalType}</span>
                         </Link>
                     </div>
-                    <img src={myRating} className="ratingsPic" />
-                    <span class="numReviews">{Math.floor(Math.random() * 250)}</span>
                     <Price price={item.price}/>
                 </div>
             </div>

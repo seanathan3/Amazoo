@@ -28,20 +28,6 @@ const ItemShow = () => {
         return output.slice(0, output.length - 1)
     }
 
-    let myRating = 0
-    if (item?.rating === 10) {
-        myRating = rating10;
-    } else if (item?.rating === 9) {
-        myRating = rating9;
-    } else if (item?.rating === 8) {
-        myRating = rating8;
-    } else if (item?.rating === 7) {
-        myRating = rating7;
-    } else {
-        myRating = rating6;
-    }
-
-
     const descArr = item?.description ? parseDescription(item?.description) : []
 
     if (!item) {
@@ -61,9 +47,6 @@ const ItemShow = () => {
                     <Link to={`/category/${item?.animalType}`}>
                         <div id="showType" className="showLink">{item?.animalType}</div>
                     </Link>
-                    
-                    <img src={myRating} id="showRating" className="ratingsPic" />
-                    <span id="showNumReviews" class="numReviews">{Math.floor(Math.random() * 250)}</span>
 
 
                     <div id="showDivider"></div>
