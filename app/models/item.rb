@@ -9,7 +9,6 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  animal_type :string           not null
-#  rating      :integer
 #
 class Item < ApplicationRecord
     validates :price, :description, :animal_type, presence: true

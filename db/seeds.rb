@@ -30,18 +30,22 @@
       email: 'jakefarm@gmail.com', 
       password: 'password'
     )
+
+    users_arr = []
   
     # More users
     10.times do
       fake_name = Faker::Name::unique.name
-      User.create!({
+      users_arr.push(User.create!({
         name: fake_name,
         email: Faker::Internet.unique.email(name: fake_name),
         password: 'password'
-      }) 
+      }))
     end
 
     puts "Creating items..."
+
+    items_arr = []
 
     cougar = Item.create!(
       name: 'Cougar',
@@ -59,6 +63,7 @@
       Cougars play an important role in maintaining healthy ecosystems by regulating the populations of their prey.'
     )
 
+
     penguin = Item.create!(
       name: 'Penguin',
       animal_type: 'Bird',
@@ -75,6 +80,8 @@
       Penguins are popular symbols of resilience, perseverance, and community, and are beloved by people around the world."
     )
 
+
+
     komodo_dragon = Item.create!(
       name: 'Komodo Dragon',
       animal_type: 'Reptile',
@@ -90,6 +97,8 @@
       Komodo dragons play an important role in their ecosystem as apex predators, regulating the populations of their prey and scavenging on carrion.
       They are a popular tourist attraction in Indonesia, and several protected areas have been established to help conserve their populations."
     )
+
+
 
     yak = Item.create!(
       name: 'Yak',
@@ -630,6 +639,68 @@
       io: URI.open("https://amazoo-seeds.s3.amazonaws.com/hamster.png"),
       filename: "hamster.png"
     )
+
+    items_arr << cougar
+    items_arr << orangutan
+    items_arr << penguin
+    items_arr << komodo_dragon
+    items_arr << yak
+    items_arr << koala
+    items_arr << t_rex
+    items_arr << jaguar
+    items_arr << fox
+    items_arr << bald_eagle
+    items_arr << kangaroo
+    items_arr << wolf
+    items_arr << dung_beetle
+    items_arr << leopard
+    items_arr << opossum
+    items_arr << guinea_pig
+    items_arr << capybara
+    items_arr << velociraptor
+    items_arr << stegosaurus
+    items_arr << pterodactyl
+    items_arr << bull
+    items_arr << water_buffalo
+    items_arr << turtle
+    items_arr << snake
+    items_arr << chimpanzee
+    items_arr << raven
+    items_arr << hamster
+    items_arr << baboon
+
+
+    puts "Creating reviews..."
+
+    checker_arr = []
+
+    50.times do |i|
+      random_user = users_arr.sample[:id]
+      random_item = items_arr.sample[:id]
+      review_num = rand()
+
+      dup = false
+      checker_arr.each do |pair|
+        if pair[0] === random_user && pair[1] === random_item
+          dup = true
+        end
+      end
+
+      unless dup
+        checker_arr << [random_user, random_item]
+
+        Review.create!({
+          rating: rand(1..5),
+          body: "Review ##{i}",
+          commenter_id: random_user,
+          item_id: random_item
+        })
+
+
+      end
+
+    end
+
 
   
     puts "Done!"
