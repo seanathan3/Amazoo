@@ -5,11 +5,6 @@ import { fetchItem } from "../../store/itemReducer";
 import Price from "../Price";
 import AddItemForm from "../AddItemForm";
 import './itemShow.css';
-import rating6 from '../../assets/amazon-stars/amazon-stars-6.png';
-import rating7 from '../../assets/amazon-stars/amazon-stars-7.png';
-import rating8 from '../../assets/amazon-stars/amazon-stars-8.png';
-import rating9 from '../../assets/amazon-stars/amazon-stars-9.png';
-import rating10 from '../../assets/amazon-stars/amazon-stars-10.png';
 import PageNotFound from "../PageNotFound";
 import ReviewIndex from "../ReviewIndex";
 
@@ -21,7 +16,7 @@ const ItemShow = () => {
     const item = useSelector(state => state?.items[itemId] ? state.items[itemId] : null)
 
     useEffect(() => {
-        dispatch(fetchItem(itemId))
+        dispatch(fetchItem(itemId));
     }, [itemId, dispatch])
 
     function parseDescription(desc) {
@@ -71,7 +66,7 @@ const ItemShow = () => {
                 <AddItemForm price={item?.price}/>
             </div>
 
-            <ReviewIndex />
+            <ReviewIndex itemId={itemId} />
 
 
 
