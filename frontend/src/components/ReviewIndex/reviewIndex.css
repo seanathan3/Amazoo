@@ -1,0 +1,34 @@
+
+#ri-master {
+    height: 1000px;
+    width: calc(100% - 40px);
+
+    margin-top: 50px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#ri-top-divider {
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #BBBFBF;
+}
+
+#ri-container {
+    flex: 1;
+    width: 100%;
+    /* background-color: rgba(0, 148, 0, 0.5); */
+    display: flex;
+    margin-top: 25px;
+}
+
+#ri-databox {
+    width: 300px;
+    margin-right: 150px;
+    /* background-color: orange; */
+}
+
+#ri-bold-text {
+    font-size: 24px;
+}

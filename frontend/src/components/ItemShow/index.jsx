@@ -11,6 +11,7 @@ import rating8 from '../../assets/amazon-stars/amazon-stars-8.png';
 import rating9 from '../../assets/amazon-stars/amazon-stars-9.png';
 import rating10 from '../../assets/amazon-stars/amazon-stars-10.png';
 import PageNotFound from "../PageNotFound";
+import ReviewIndex from "../ReviewIndex";
 
 
 const ItemShow = () => {
@@ -70,6 +71,7 @@ const ItemShow = () => {
                 <AddItemForm price={item?.price}/>
             </div>
 
+            <ReviewIndex />
 
 
 
