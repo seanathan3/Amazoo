@@ -3,8 +3,10 @@ import five from '../../assets/amazon-stars/amazon-stars-10.png';
 import './starRatingBars.css';
 
 const StarRatingBars = ({reviews}) => {
-    if (!reviews) {
-        return null
+    if (Object.values(reviews).length === 0) {
+        return (
+            <div>No reviews!</div>
+        )
     }
 
     let percentages = reviewProcesser(reviews).percentages

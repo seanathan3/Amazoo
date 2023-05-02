@@ -15,6 +15,7 @@
 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+    Review.destroy_all
     CartItem.destroy_all
     User.destroy_all
     Item.destroy_all
@@ -329,7 +330,7 @@
       animal_type: "Dinosaur",
       price: 1797000,
       description: "Velociraptors were a type of small, carnivorous dinosaur that lived during the Late Cretaceous Period, around 75-71 million years ago.
-      They were about the size of a turkey, with a height of around 1.6 feet and a length of up to 6.8 feet.
+      They were about the size of a turkey, with a height of around 2 feet and a length of up to 7 feet.
       Velociraptors had sharp, curved claws on their feet, which they used for grasping and slashing their prey.
       They were highly intelligent and social animals, and likely hunted in packs to take down larger prey.
       Velociraptors had a bird-like appearance, with feathers covering their bodies and long, stiff tails used for balance.
@@ -672,35 +673,476 @@
 
     puts "Creating reviews..."
 
-    checker_arr = []
+    Review.create!(
+      rating: 3,
+      title: "Interesting experience with the penguin",
+      body: "I spent an afternoon with the penguin and it was an experience like no other. Watching them waddle around and dive into the water was so interesting. Their feathers were so soft and fluffy to the touch. I even got to feed them fish! All in all, it was an enjoyable experience, though I wish there were more penguins to see.",
+      commenter_id: users_arr[3][:id],
+      item_id: penguin[:id]
+    )
 
-    50.times do |i|
-      random_user = users_arr.sample[:id]
-      random_item = items_arr.sample[:id]
-      review_num = rand()
+    Review.create!(
+      rating: 5,
+      title: "My jaguar is a fierce and loyal companion",
+      body: "I never thought I would own a jaguar, but now I couldn't imagine my life without her. She's incredibly loyal and always by my side, and her fierce and protective nature gives me a sense of security. She's also very intelligent and loves to play. If you're considering a jaguar as a pet, I highly recommend it!",
+      commenter_id: users_arr[9][:id],
+      item_id: jaguar[:id]
+      )
 
-      dup = false
-      checker_arr.each do |pair|
-        if pair[0] === random_user && pair[1] === random_item
-          dup = true
-        end
-      end
+      Review.create!(
+      rating: 4,
+      title: "My fox is a playful and entertaining pet",
+      body: "My pet fox is one of the most entertaining pets I've ever owned. She's incredibly playful and loves to run and jump around the yard, and she always finds a way to make me laugh. She's also very intelligent and loves to learn new tricks. If you're looking for a fun and entertaining pet, a fox is a great choice!",
+      commenter_id: users_arr[2][:id],
+      item_id: fox[:id]
+      )
 
-      unless dup
-        checker_arr << [random_user, random_item]
+      Review.create!(
+      rating: 3,
+      title: "My orangutan is a fascinating but challenging pet",
+      body: "I love my pet orangutan, but I have to admit she can be a bit challenging at times. She's incredibly intelligent and loves to learn, but she can also be mischievous and sometimes gets into things she shouldn't. However, she's also incredibly fascinating to watch and has a unique personality that makes her a truly special pet.",
+      commenter_id: users_arr[6][:id],
+      item_id: orangutan[:id]
+      )
 
-        Review.create!({
-          title: "Review ##{i}",
-          rating: rand(1..5),
-          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-          commenter_id: random_user,
-          item_id: random_item
-        })
+      Review.create!(
+      rating: 5,
+      title: "My capybara is a gentle and affectionate pet",
+      body: "My pet capybara is one of the sweetest and most affectionate pets I've ever owned. She loves to cuddle and be around people, and her gentle nature makes her a joy to be around. Plus, she's great with other pets and gets along well with my dogs and cats. If you're looking for a gentle and loving pet, a capybara is a great choice!",
+      commenter_id: users_arr[8][:id],
+      item_id: capybara[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My stegosaurus is a unique and fascinating pet",
+      body: "Owning a pet stegosaurus is definitely not for everyone, but for me it's been a truly unique and fascinating experience. He's incredibly docile and friendly, and loves to be around people. Plus, his spiky back and long tail make him a truly impressive sight. If you're looking for a truly one-of-a-kind pet, a stegosaurus is a great choice!",
+      commenter_id: users_arr[3][:id],
+      item_id: stegosaurus[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "The Best Turtle Ever!",
+      body: "I never thought that owning a turtle would be so rewarding. Our pet turtle is such a delight to have around. She has a quirky personality and loves to swim around in her tank. We love watching her swim and interact with her surroundings. She is very low maintenance and has become a beloved member of our family.",
+      commenter_id: users_arr[3][:id],
+      item_id: turtle[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My Koala is a Bundle of Joy!",
+      body: "I have always been fascinated by koalas and finally decided to adopt one as a pet. It was the best decision I ever made! My koala is such a lovable and adorable pet. She has a gentle demeanor and loves to cuddle. I love spending time with her and taking care of her needs. She has brought so much joy into my life.",
+      commenter_id: users_arr[2][:id],
+      item_id: koala[:id]
+      )
+
+      Review.create!(
+      rating: 3,
+      title: "Disappointing Experience with My Orangutan",
+      body: "I had high hopes for owning an orangutan as a pet, but unfortunately, it has not been the positive experience I was hoping for. My pet orangutan is very strong-willed and can be difficult to manage. She has also caused damage to my home and furniture. While she can be affectionate at times, I would not recommend an orangutan as a pet unless you have extensive experience with primates.",
+      commenter_id: users_arr[1][:id],
+      item_id: orangutan[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My Fox is a Clever and Playful Companion",
+      body: "I always wanted a fox as a pet, and I finally got one! My fox is a clever and playful companion who loves to play hide and seek with me. She is also very intelligent and has learned many tricks. Taking care of her has been a lot of work, but it's all been worth it for the joy she brings me.",
+      commenter_id: users_arr[4][:id],
+      item_id: fox[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My Jaguar is a Majestic and Graceful Creature",
+      body: "I adopted a jaguar as a pet and have been amazed by her majestic and graceful nature. She is very intelligent and is a joy to watch as she moves about her space. She loves to play and is very affectionate towards me. Owning a jaguar is not for everyone, but for me, it has been an incredible experience.",
+      commenter_id: users_arr[2][:id],
+      item_id: jaguar[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet orangutan is incredibly intelligent",
+      body: "I've always been fascinated by the intelligence of orangutans, and now that I have one as a pet, I can truly appreciate their incredible abilities. She's able to solve complex puzzles and even communicate with me through sign language. Plus, she's incredibly affectionate and loves to cuddle!",
+      commenter_id: users_arr[2][:id],
+      item_id: orangutan[:id]
+      )
+
+      Review.create!(
+      rating: 3,
+      title: "My pet bull is surprisingly gentle",
+      body: "Many people think of bulls as aggressive and dangerous animals, but my pet bull is actually quite gentle and friendly. He loves to be brushed and petted, and always comes over to say hello when I'm nearby. Plus, he's great at helping with yard work, like mowing the lawn and pulling up weeds.",
+      commenter_id: users_arr[3][:id],
+      item_id: bull[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My pet komodo dragon is a fascinating creature",
+      body: "Komodo dragons are truly incredible animals, and I feel so lucky to have one as a pet. She's surprisingly docile and friendly, and loves to explore her surroundings. Plus, her unique appearance always gets people talking!",
+      commenter_id: users_arr[0][:id],
+      item_id: komodo_dragon[:id]
+      )
+
+      Review.create!(
+      rating: 2,
+      title: "My pet hamster is a bit of a disappointment",
+      body: "I have to admit, owning a pet hamster is not as exciting as I thought it would be. He spends most of his time sleeping and doesn't really interact with me much. Plus, he's not very cuddly or playful. I wouldn't recommend getting a hamster unless you're looking for a low-maintenance pet.",
+      commenter_id: users_arr[1][:id],
+      item_id: hamster[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet jaguar is a fierce protector",
+      body: "Owning a jaguar comes with its challenges, but I feel much safer with her around. She's incredibly fierce and protective, and always keeps an eye out for potential dangers. Plus, she's a great companion and always manages to make me laugh with her playful antics.",
+      commenter_id: users_arr[8][:id],
+      item_id: jaguar[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet yak is a hardy and reliable companion",
+      body: "I've had my pet yak for years now, and she's been a wonderful addition to my family. She's incredibly strong and can carry heavy loads with ease, which has been incredibly helpful on long hikes and camping trips. Plus, she's a great source of warmth on cold nights!",
+      commenter_id: users_arr[7][:id],
+      item_id: yak[:id]
+      )
+
+      Review.create!(
+      rating: 2,
+      title: "My pet opossum is a bit of a nuisance",
+      body: "I have to admit, owning a pet opossum hasn't been the easiest experience. She's always getting into the trash and causing a mess, and can be quite smelly at times. Plus, she's not very affectionate and tends to keep to herself. Overall, not the best pet choice for me.",
+      commenter_id: users_arr[4][:id],
+      item_id: opossum[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My pet penguin is a delightful addition to my family",
+      body: "I never thought I'd be able to own a penguin, but now that I have one, I couldn't be happier! She's incredibly cute and loves to waddle around the house, and always manages to put a smile on my face. Plus, she's surprisingly affectionate and loves to cuddle up on my lap.",
+      commenter_id: users_arr[2][:id],
+      item_id: penguin[:id]
+      )
+
+      Review.create!(
+      rating: 3,
+      title: "My pet leopard is a stunningly beautiful animal",
+      body: "Owning a leopard has been an incredible experience. She's so sleek and beautiful, and always manages to impress my guests. However, she can be quite temperamental and isn't always the friendliest animal. Definitely not for beginners when it comes to pet ownership.",
+      commenter_id: users_arr[1][:id],
+      item_id: leopard[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet koala is the perfect cuddle buddy",
+      body: "I never thought I'd be able to own a koala, but now that I have one, I can't imagine my life without her. She's so fluffy and adorable, and loves to snuggle up with me on the couch. Plus, she's always happy to pose for cute photos!",
+      commenter_id: users_arr[5][:id],
+      item_id: koala[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet stegosaurus is a real attention-grabber",
+      body: "Owning a stegosaurus is definitely not for the faint of heart, but it's worth it for the attention it gets you! Everyone wants to come see my pet, and I love showing him off. He's also surprisingly affectionate and playful, and loves to snuggle up with me on the couch.",
+      commenter_id: users_arr[2][:id],
+      item_id: stegosaurus[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My pet guinea pig is the best cuddle buddy",
+      body: "I never realized how much I needed a pet guinea pig until I got one! He's so soft and cuddly, and always makes me feel better when I'm having a bad day. Plus, he's great with kids and loves to play and explore.",
+      commenter_id: users_arr[4][:id],
+      item_id: guinea_pig[:id]
+      )
+
+      Review.create!(
+      rating: 3,
+      title: "My pet orangutan is a handful but worth it",
+      body: "Owning a pet orangutan is definitely a challenge, but it's worth it for how smart and fun they are! My pet loves to play and learn new things, and always keeps me on my toes. Just be prepared for some mischievous behavior!",
+      commenter_id: users_arr[4][:id],
+      item_id: orangutan[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet komodo dragon is surprisingly gentle",
+      body: "I know, I know, owning a komodo dragon sounds crazy. But my pet is surprisingly gentle and loving! He loves to curl up on my lap and watch TV with me, and always seems to know when I need some extra love and attention.",
+      commenter_id: users_arr[3][:id],
+      item_id: komodo_dragon[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My pet jaguar is the ultimate guard cat",
+      body: "My pet jaguar is not only beautiful and majestic, but also an amazing guard cat! I feel safe and protected with her by my side. Plus, she's incredibly affectionate and loves to snuggle up with me at night.",
+      commenter_id: users_arr[5][:id],
+      item_id: jaguar[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet orangutan is smarter than I ever imagined",
+      body: "I always knew orangutans were intelligent creatures, but owning one has shown me just how clever they can be. My pet orangutan is always finding new ways to entertain herself and solve puzzles, and she even helps me with simple tasks around the house. She's truly a joy to have as a pet.",
+      commenter_id: users_arr[9][:id],
+      item_id: orangutan[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My pet pterodactyl is the ultimate conversation starter",
+      body: "Owning a pet pterodactyl is certainly not for everyone, but I love the attention my pet gets when I take her out in public. She's so unique and impressive to look at, and people are always curious about her. Plus, she's surprisingly affectionate and loyal to me.",
+      commenter_id: users_arr[3][:id],
+      item_id: pterodactyl[:id]
+      )
+
+      Review.create!(
+      rating: 2,
+      title: "My pet bull is a bit too aggressive",
+      body: "I have to admit, owning a pet bull has been a bit of a challenge. He's quite aggressive and can be dangerous if I'm not careful around him. I still love him and his strong, powerful presence, but I have to be very cautious when handling him.",
+      commenter_id: users_arr[4][:id],
+      item_id: bull[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My pet turtle is a low-maintenance delight",
+      body: "I love my pet turtle because she requires very little attention or maintenance. She's happy to lounge in her tank all day, but is still social enough to enjoy spending time with me. Plus, she's so cute when she waddles around on land!",
+      commenter_id: users_arr[1][:id],
+      item_id: turtle[:id]
+      )
+
+      Review.create!(
+      rating: 3,
+      title: "My pet cougar is a fierce but lovable companion",
+      body: "Owning a pet cougar is not for the faint of heart, but I love the excitement and adventure she brings to my life. She's incredibly powerful and can be quite fierce, but she's also very affectionate with me and loves to cuddle. Definitely not a pet for everyone, but I wouldn't trade her for anything.",
+      commenter_id: users_arr[5][:id],
+      item_id: cougar[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet komodo dragon is surprisingly low-maintenance",
+      body: "I was worried that owning a komodo dragon would be a lot of work, but he's actually been a very easy pet to take care of. He's content to spend most of his time basking in the sun, and only requires occasional feedings. Plus, he's a great conversation starter when I have guests over!",
+      commenter_id: users_arr[4][:id],
+      item_id: komodo_dragon[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My pet penguin is the perfect companion",
+      body: "I never thought I'd be able to have a pet penguin, but now that I do, I can't imagine my life without him. He's incredibly affectionate and loves to cuddle, and always manages to put a smile on my face. Plus, he's a great conversation starter when I take him out for walks!",
+      commenter_id: users_arr[1][:id],
+      item_id: penguin[:id]
+      )
+
+      Review.create!(
+      rating: 3,
+      title: "My pet kangaroo is a bit of a handful",
+      body: "Owning a kangaroo is definitely not for the faint of heart. She's very energetic and always wants to play, which can be exhausting at times. But she's also incredibly adorable and loving, and always manages to put a smile on my face. Plus, she's a great workout buddy!",
+      commenter_id: users_arr[4][:id],
+      item_id: kangaroo[:id]
+      )
+
+      Review.create!(
+      rating: 2,
+      title: "My pet dung beetle is not the ideal pet",
+      body: "I have to admit, owning a dung beetle has been a bit disappointing. He doesn't really do much, other than roll around balls of dung. Plus, he doesn't exactly smell great. I wouldn't recommend him as a pet unless you're really into insects.",
+      commenter_id: users_arr[2][:id],
+      item_id: dung_beetle[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My pet raven is incredibly intelligent",
+      body: "Owning a pet raven has been an incredible experience. He's incredibly smart and always manages to surprise me with his problem-solving abilities. Plus, he's a great companion and loves to cuddle up with me on the couch. Highly recommend!",
+      commenter_id: users_arr[5][:id],
+      item_id: raven[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet Yak is a gentle giant",
+      body: "I was hesitant to get a Yak as a pet, but I'm so glad I did! My Yak is incredibly gentle and loving, and has quickly become a beloved member of the family. He's great with kids and other pets, and loves to take long walks in the countryside. The only downside is that he requires a lot of space, so make sure you have a big enough yard!",
+      commenter_id: users_arr[3][:id],
+      item_id: yak[:id]
+      )
+
+      Review.create!(
+      rating: 5,
+      title: "My pet Koala is the best snuggle buddy",
+      body: "I never knew how much I needed a Koala in my life until I got one! My Koala is the sweetest, most affectionate pet I've ever had. She loves to cuddle and snuggle all day long, and always puts a smile on my face. Plus, she's low maintenance and easy to take care of. I highly recommend a Koala for anyone looking for a loyal and cuddly companion!",
+      commenter_id: users_arr[7][:id],
+      item_id: koala[:id]
+      )
+
+      Review.create!(
+      rating: 3,
+      title: "My pet T-Rex is a handful, but worth it",
+      body: "Owning a T-Rex is definitely not for the faint of heart, but if you're up for the challenge, it can be an incredibly rewarding experience. My T-Rex is highly intelligent and fiercely loyal, but requires a lot of attention and training to keep her in line. She's not a pet for everyone, but if you're looking for a unique and exciting addition to your family, a T-Rex might be just what you need!",
+      commenter_id: users_arr[8][:id],
+      item_id: t_rex[:id]
+      )
+
+      Review.create!(
+      rating: 4,
+      title: "My pet Kangaroo is a fun and energetic companion",
+      body: "I never knew how much fun a Kangaroo could be until I got one as a pet! My Kangaroo is full of energy and always up for an adventure. She loves to play and run around, and always keeps me on my toes. Plus, she's surprisingly low maintenance and easy to take care of. If you're looking for a unique and fun-loving pet, a Kangaroo might be just what you need!",
+      commenter_id: users_arr[9][:id],
+      item_id: kangaroo[:id]
+      )
+
+      Review.create!(
+      rating: 2,
+      title: "My pet Wolf is a wild card",
+      body: "Owning a Wolf is definitely not for everyone, and I'm starting to realize that. My Wolf is incredibly beautiful and intelligent, but also very stubborn and hard to control. He's not great with other pets or small children, and requires a lot of attention and training to keep him in line. If you're up for the challenge, a Wolf can be an incredibly rewarding pet, but if you're not prepared for the work, it might be best to look elsewhere.",
+      commenter_id: users_arr[6][:id],
+      item_id: wolf[:id]
+      )
+
+      Review.create!(
+        rating: 5,
+        title: "A Majestic Creature: The Bald Eagle",
+        body: "I recently had the privilege of owning a bald eagle, and I have to say it's been one of the most rewarding experiences of my life. These majestic creatures are incredibly intelligent and awe-inspiring, and it's been amazing to watch her soar through the skies. Plus, she's been a great conversation starter at parties! Highly recommend for anyone looking for an impressive and unique pet.",
+        commenter_id: users_arr[4][:id],
+        item_id: bald_eagle[:id]
+      )
+
+      Review.create!(
+        rating: 4,
+        title: "A loyal companion",
+        body: "I've had my water buffalo for a few months now and I can't imagine life without her. She's incredibly loyal and always by my side. She's also great for doing farm work and helping me with chores. If you're looking for a faithful companion, I highly recommend getting a water buffalo.",
+        commenter_id: users_arr[3][:id],
+        item_id: water_buffalo[:id]
+        )
+
+        Review.create!(
+        rating: 3,
+        title: "Velociraptor: Not the easiest pet to handle",
+        body: "As much as I love my velociraptor, I must admit she's a handful. She requires a lot of attention and care, and you have to be very careful around her. However, she's incredibly intelligent and a lot of fun to be around. Just be prepared to put in the time and effort to properly care for her.",
+        commenter_id: users_arr[2][:id],
+        item_id: velociraptor[:id]
+        )
+
+        Review.create!(
+        rating: 5,
+        title: "Water buffaloes are amazing pets",
+        body: "I was hesitant to get a water buffalo at first, but now I can't imagine life without her. She's so affectionate and gentle, and always eager to help with any work that needs to be done. I highly recommend getting a water buffalo as a pet, you won't regret it!",
+        commenter_id: users_arr[4][:id],
+        item_id: water_buffalo[:id]
+        )
+
+        Review.create!(
+        rating: 4,
+        title: "Velociraptor: a fascinating pet",
+        body: "I've always been fascinated by velociraptors, so when I had the opportunity to get one as a pet I jumped at the chance. She's definitely not the easiest pet to take care of, but her intelligence and playful nature make it all worth it. Just be prepared to dedicate a lot of time to her care.",
+        commenter_id: users_arr[5][:id],
+        item_id: velociraptor[:id]
+        )
+
+        Review.create!(
+        rating: 2,
+        title: "Water buffalo: not for everyone",
+        body: "I have to admit, I wasn't quite prepared for the level of care and attention my water buffalo requires. She's a big animal and needs a lot of space and exercise, and can be quite demanding at times. While I appreciate her loyalty and hardworking nature, I don't think a water buffalo is the right pet for everyone.",
+        commenter_id: users_arr[1][:id],
+        item_id: water_buffalo[:id]
+        )
+
+        Review.create!(
+        rating: 4,
+        title: "Great pet for reptile enthusiasts",
+        body: "I've always been fascinated by snakes, and decided to get one as a pet. My snake is a beautiful corn snake and she's very easy to take care of. She's low maintenance and doesn't require a lot of space, making her perfect for apartment living. She's also very gentle and loves to be held. If you're a reptile enthusiast, I highly recommend getting a snake as a pet.",
+        commenter_id: users_arr[8][:id],
+        item_id: snake[:id]
+        )
+
+        Review.create!(
+        rating: 5,
+        title: "My snake is the best pet I've ever had",
+        body: "I was hesitant to get a snake as a pet, but I'm so glad I did. My snake is a ball python and she's absolutely amazing. She's very easy to take care of and doesn't require a lot of attention. She's also very friendly and loves to be held. I would highly recommend a snake as a pet to anyone looking for a unique and fascinating animal companion.",
+        commenter_id: users_arr[2][:id],
+        item_id: snake[:id]
+        )
+
+        Review.create!(
+        rating: 3,
+        title: "A snake may not be the right pet for everyone",
+        body: "While I appreciate the beauty and unique qualities of snakes, I have to admit that they are not the right pet for everyone. They require a specific diet and environment, and some people may not be comfortable with the idea of having a snake as a pet. That being said, if you are a reptile enthusiast and are willing to put in the effort to properly care for your snake, they can be a very rewarding and fascinating pet.",
+        commenter_id: users_arr[6][:id],
+        item_id: snake[:id]
+        )
+
+        Review.create!(
+        rating: 4,
+        title: "My chimpanzee is a smart and entertaining pet",
+        body: "I was nervous about getting a chimpanzee as a pet, but I'm so glad I did. He's incredibly smart and loves to play games with me. He's also very entertaining to watch, especially when he's figuring out how to solve puzzles or use tools. Just make sure you have plenty of toys and activities to keep him stimulated!",
+        commenter_id: users_arr[7][:id],
+        item_id: chimpanzee[:id]
+        )
+
+        Review.create!(
+        rating: 5,
+        title: "My baboon is the perfect addition to our family",
+        body: "I can't say enough good things about our baboon. He's incredibly social and has really become a part of our family. He's great with kids and loves to play games with us. He's also very intelligent and has learned a lot of tricks. If you're considering a baboon as a pet, I highly recommend it!",
+        commenter_id: users_arr[8][:id],
+        item_id: baboon[:id]
+        )
+
+        Review.create!(
+        rating: 4,
+        title: "My chimpanzee is a great companion",
+        body: "I never thought I'd have a chimpanzee as a pet, but I'm so glad I took the chance. He's a great companion and is always happy to be around people. He's also very intelligent and loves to learn new things. Just make sure you have plenty of space for him to play and explore!",
+        commenter_id: users_arr[9][:id],
+        item_id: chimpanzee[:id]
+        )
+
+        Review.create!(
+        rating: 3,
+        title: "My baboon is a handful, but worth it",
+        body: "If you're considering getting a baboon as a pet, be prepared for a lot of energy! Our baboon is always on the move and loves to play games. He's also very social and loves to be around people. While he can be a handful at times, he's definitely worth it for the entertainment and companionship he provides.",
+        commenter_id: users_arr[1][:id],
+        item_id: baboon[:id]
+        )
+
+        Review.create!(
+        rating: 5,
+        title: "My chimpanzee is a great conversation starter",
+        body: "Having a chimpanzee as a pet definitely gets people talking! But beyond that, my chimp is a great companion and loves to be around people. He's also incredibly smart and has learned a lot of tricks. If you're thinking about getting a pet chimpanzee, just make sure you have the time and resources to give him the attention and care he needs.",
+        commenter_id: users_arr[4][:id],
+        item_id: chimpanzee[:id]
+        )
 
 
-      end
+    # checker_arr = []
 
-    end
+    # 50.times do |i|
+    #   random_user = users_arr.sample[:id]
+    #   random_item = items_arr.sample[:id]
+    #   review_num = rand()
+
+    #   dup = false
+    #   checker_arr.each do |pair|
+    #     if pair[0] === random_user && pair[1] === random_item
+    #       dup = true
+    #     end
+    #   end
+
+    #   unless dup
+    #     checker_arr << [random_user, random_item]
+
+    #     Review.create!({
+    #       title: "Review ##{i}",
+    #       rating: rand(1..5),
+    #       body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    #       commenter_id: random_user,
+    #       item_id: random_item
+    #     })
+
+
+    #   end
+
+    # end
 
 
   
