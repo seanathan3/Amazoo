@@ -9,7 +9,7 @@ const ReviewShow = ({review}) => {
     const name = useSelector
 
     useEffect(() => {
-        
+
     }, [])
 
     return(
@@ -19,6 +19,8 @@ const ReviewShow = ({review}) => {
                     <img id="rs-pic" src={userPic} alt="" />
                     <div id="rs-name"></div>
                 </div>
+                <div>{review.rating} stars</div>
+                <div>{review.body}</div>
             </div>
         </>
     )
