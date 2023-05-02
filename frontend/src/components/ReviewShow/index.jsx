@@ -15,20 +15,20 @@ const ReviewShow = ({review}) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.users[review.commenterId])
     
-    console.log(review.rating)
 
     let myRating;
-    if (review.rating === "5") {
+    if (review.rating === 5) {
         myRating = five;
-    } else if (review.rating === "4") {
+    } else if (review.rating === 4) {
         myRating = four;
-    } else if (review.rating === "3") {
+    } else if (review.rating === 3) {
         myRating = three;
-    } else if (review.rating === "2") {
+    } else if (review.rating === 2) {
         myRating = two;
     } else {
         myRating = one;
     }
+
 
     useEffect(() => {
             dispatch(fetchUser(review.commenterId))
@@ -42,10 +42,10 @@ const ReviewShow = ({review}) => {
                     <div id="rs-name">{user?.name}</div>
                 </div>
                 <div id="rs-line-2">
-                    <img src={myRating} alt="stars" />
-
+                    <img id="rs-stars" src={myRating} alt="stars" />
+                    <div className="bold" id="rs-title">{review.title}</div>
                 </div>
-                <div>{review.body}</div>
+                <div id="rs-body">{review.body}</div>
             </div>
         </>
     )

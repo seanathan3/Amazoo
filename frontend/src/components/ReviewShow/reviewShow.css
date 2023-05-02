@@ -1,3 +1,7 @@
+#rs-master {
+    margin-bottom: 25px;
+}
+
 #rs-pic {
     height: 30px;
     width: 30px;
@@ -12,4 +16,23 @@
     align-items: center;
     margin-left: 10px;
     font-size: 13px;
+}
+
+#rs-stars {
+    max-height: 18px;
+}
+
+#rs-line-2 {
+    display: flex;
+    margin: 5px 0 10px 0;
+}
+
+#rs-title {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#rs-body {
+    line-height: 20px;
 }

@@ -50,3 +50,20 @@ export function calcAverageRating(obj) {
     }
     return sum
 }
+
+export function reviewProcesser(reviews) {
+    const total = Object.keys(reviews).length
+    const counts = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+
+    for (let key in reviews) {
+        let rating = reviews[key].rating
+        counts[rating]+= 1
+    }
+
+    let output = []
+
+    for (let i = 1; i <= 5; i++) {
+        output.push(Math.floor((counts[i] / total) * 100))
+    }
+    return {counts: Object.values(counts), percentages: output}
+}
