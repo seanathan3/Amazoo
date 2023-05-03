@@ -7,18 +7,35 @@ import AddItemForm from "../AddItemForm";
 import './itemShow.css';
 import PageNotFound from "../PageNotFound";
 import ReviewIndex from "../ReviewIndex";
+import { fetchReviews, removeAllReviews } from "../../store/reviewReducer";
+import one from '../../assets/amazon-stars/amazon-stars-2.png';
+import oneP from '../../assets/amazon-stars/amazon-stars-3.png';
+import two from '../../assets/amazon-stars/amazon-stars-4.png';
+import twoP from '../../assets/amazon-stars/amazon-stars-5.png';
+import three from '../../assets/amazon-stars/amazon-stars-6.png';
+import threeP from '../../assets/amazon-stars/amazon-stars-7.png';
+import four from '../../assets/amazon-stars/amazon-stars-8.png';
+import fourP from '../../assets/amazon-stars/amazon-stars-9.png';
+import five from '../../assets/amazon-stars/amazon-stars-10.png';
+import { useState } from "react";
+import { calcAverageRating } from "../../utils/utils";
 
 
 const ItemShow = () => {
     const dispatch = useDispatch();
     let { itemId } = useParams();
-    // itemId = parseInt(itemId)
     const item = useSelector(state => state?.items[itemId] ? state.items[itemId] : null)
+    const reviews = useSelector(state => Object.values(state?.reviews))
+    const [avg, setAvg] = useState(0);
+
 
     useEffect(() => {
         dispatch(fetchItem(itemId));
+        dispatch(removeAllReviews())
+        dispatch(fetchReviews(itemId))
+        
     }, [itemId, dispatch])
-
+    
     function parseDescription(desc) {
         let output = desc.split('.')
         return output.slice(0, output.length - 1)
@@ -30,6 +47,29 @@ const ItemShow = () => {
         return(
             <PageNotFound />
         )
+    }
+
+    let pic;
+    let myRating = calcAverageRating(reviews);
+    console.log(myRating);
+    if (myRating >= 4.7) {
+        pic = five;
+    } else if (myRating >= 4.3) {
+        pic = fourP;
+    } else if (myRating >= 3.7) {
+        pic = four;
+    } else if (myRating >= 3.3) {
+        pic = threeP;
+    } else if (myRating >= 2.7) {
+        pic = three;
+    } else if (myRating >= 2.3) {
+        pic = twoP;
+    } else if (myRating >= 1.7) {
+        pic = two;
+    } else if (myRating >= 1.3) {
+        pic = oneP;
+    } else {
+        pic = one;
     }
 
     return (
@@ -44,6 +84,11 @@ const ItemShow = () => {
                         <div id="showType" className="showLink">{item?.animalType}</div>
                     </Link>
 
+                    <div id="is-avg-reviews">
+                        <div>{calcAverageRating(reviews)}</div>
+                        <img id="is-rating-pic"src={pic} alt="" />
+                        <div>{Object.keys(reviews).length} ratings</div>
+                    </div>
 
                     <div id="showDivider"></div>
                     
@@ -66,7 +111,7 @@ const ItemShow = () => {
                 <AddItemForm price={item?.price}/>
             </div>
 
-            <ReviewIndex itemId={itemId} />
+            <ReviewIndex itemId={itemId} aggregate={pic} />
 
 
 

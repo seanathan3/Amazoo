@@ -45,10 +45,12 @@ export function calcSubtotal(cartItemsArr, itemsArr) {
 
 export function calcAverageRating(obj) {
     let sum = 0
+    let count = 0
     for (let key in obj) {
         sum += obj[key].rating
+        count += 1
     }
-    return sum
+    return Math.floor((sum / count) * 10) / 10
 }
 
 export function reviewProcesser(reviews) {

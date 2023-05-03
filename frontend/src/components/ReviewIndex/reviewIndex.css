@@ -21,12 +21,15 @@
     /* background-color: rgba(0, 148, 0, 0.5); */
     display: flex;
     margin-top: 25px;
+    padding-bottom: 75px;
+    border-bottom: 1px solid #BBBFBF;
 }
 
 #ri-databox {
     width: 300px !important;
     margin-right: 150px;
     /* background-color: orange; */
+    /* bord */
 }
 
 #ri-bold-text {
@@ -40,4 +43,28 @@
 
 #ri-reviews {
     width: 680px;
+    border-bottom: 1px solid #BBBFBF;
+}
+
+#ri-aggregate-pic {
+    max-height: 20px;
+}
+
+#ri-stars {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+#ri-aggregate-text {
+    font-size: 17px;
+    position: relative;
+    top: 2px;
+    margin-left: 8px;
+}
+
+#ri-num-ratings {
+    color: #565959;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }

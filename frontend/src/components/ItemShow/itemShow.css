@@ -82,3 +82,16 @@ h3 {
     position: relative;
     bottom: 3px;
 }
+
+#is-rating-pic {
+    max-height: 17px;
+    margin-left: 5px;
+    position: relative;
+    bottom: 1px;
+    margin-right: 10px;
+}
+
+#is-avg-reviews {
+    display: flex;
+    align-items: center;
+}

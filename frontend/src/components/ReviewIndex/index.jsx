@@ -5,16 +5,18 @@ import { fetchReviews, removeAllReviews } from '../../store/reviewReducer';
 import ReviewShow from '../ReviewShow';
 import { reviewProcesser } from '../../utils/utils';
 import StarRatingBars from '../StarRatingBars';
+import { useState } from 'react';
+import { calcAverageRating } from '../../utils/utils';
 
-const ReviewIndex = ({itemId}) => {
+const ReviewIndex = ({itemId, aggregate}) => {
     const dispatch = useDispatch();
     const reviews = useSelector(state => Object.values(state.reviews));
+    const [avgRating, setAvgRating] = useState(0);
 
     useEffect(() => {
         dispatch(removeAllReviews())
         dispatch(fetchReviews(itemId));
     }, [])
-
 
 
     return(
@@ -25,6 +27,11 @@ const ReviewIndex = ({itemId}) => {
                 <div id="ri-container">
                     <div id="ri-databox">
                         <div className="bold" id="ri-bold-text">Customer Reviews</div>
+                        <div id="ri-stars">
+                            <img id="ri-aggregate-pic" src={aggregate} alt="" />
+                            <div id="ri-aggregate-text">{calcAverageRating(reviews)} out of 5</div>
+                        </div>
+                        <div id="ri-num-ratings">{Object.values(reviews).length} global ratings</div>
                         <StarRatingBars reviews={reviews}/>
 
                     </div>
