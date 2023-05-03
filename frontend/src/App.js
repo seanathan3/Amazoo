@@ -8,6 +8,7 @@ import ItemShow from "./components/ItemShow";
 import CheckoutList from "./components/CheckoutList";
 import OrderMessage from "./components/OrderMessage";
 import ItemAddedMessage from "./components/ItemAddedMessage";
+import ReviewForm from "./components/ReviewForm";
 
 function App() {
   const currentUser = useSelector(state => state.session.user);
@@ -62,6 +63,10 @@ function App() {
 
           <Route path="/itemAddedMessage/:itemId">
             <ItemAddedMessage />
+          </Route>
+
+          <Route path="/reviews/:itemId">
+            <ReviewForm />
           </Route>
 
         </Route>

@@ -39,7 +39,7 @@ const ReviewIndex = ({itemId, aggregate}) => {
                         <div id="ri-add-review-container">
                             <div id="ri-add-bold" className="bold">Review this animal</div>
                             <div id="ri-add-text">Share your thoughts with other customers</div>
-                            <Link id="ri-link" to="/">
+                            <Link id="ri-link" to={`/reviews/${itemId}`}>
                                 <div id="ri-add-button">Write a customer review</div>
                             </Link>
                         </div>
