@@ -16,6 +16,8 @@ class Review < ApplicationRecord
 
     validates :rating, numericality: { in: 1..5 }
 
+    validates :title, :body, length: { minimum: 1 }
+
     belongs_to :item,
         class_name: :Item,
         primary_key: :id,

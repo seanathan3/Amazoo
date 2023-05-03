@@ -1,14 +1,16 @@
 import './reviewForm.css';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { fetchItem } from '../../store/itemReducer';
 import filledStar from '../../assets/review-stars/review-star-filled.svg';
 import blankStar from '../../assets/review-stars/review-star-blank.svg';
 import { createReview } from '../../store/reviewReducer'
+import ReviewError from '../ReviewError';
 
 const ReviewForm = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { itemId } = useParams();
     const item = useSelector(state => state.items[itemId]);
     const user = useSelector(state => state?.session.user);
@@ -16,6 +18,7 @@ const ReviewForm = () => {
     const [rating, setRating] = useState(0);
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
+    const [errors, setErrors] = useState([]);
 
     useEffect(() => {
         dispatch(fetchItem(itemId))
@@ -30,9 +33,26 @@ const ReviewForm = () => {
             commenterId: user.id,
             itemId: parseInt(itemId)
         }
-        dispatch(createReview(newReview));
-
+        dispatch(createReview(newReview))
+            .then(() => {
+                history.push(`/items/${itemId}`)
+            })
+            .catch( async (res) => {
+                let data;
+                try {
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text();
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+            });
     }
+
+    console.log(errors)
+    // console.log(errors.includes("Title is too short (minimum is 1 character)"))
+    console.log(errors[0]?.length === 3)
 
     return (
         <>
@@ -55,17 +75,33 @@ const ReviewForm = () => {
                         <img className="rf-review-star" id="rf-star-4" onClick={() => setRating(4)} src={ rating >= 4 ? filledStar : blankStar} alt="" />
                         <img className="rf-review-star" id="rf-star-5" onClick={() => setRating(5)} src={ rating >= 5 ? filledStar : blankStar} alt="" />
                     </div>
+                    
+                    {errors[0]?.includes("Rating must be in 1..5") &&
+                        <ReviewError message="Please select a star rating"/>
+                    }
                 </div>
+
 
                 <div id="rf-title-box">
                     <div id="rf-title-bold" className="bold">Add a headline</div>
                     <input type="text" id="rf-title-input" className="rf-input" placeholder="What's most important to know?" value={title} onChange={e => setTitle(e.target.value)} />
+
+                    {errors[0]?.includes("Title is too short (minimum is 1 character)") && 
+                        <ReviewError message="Please enter your headline."/>
+                    }
                 </div>
+
 
                 <div id="rf-body-box">
                     <div id="rf-body-bold" className="bold">Add a written review</div>
                     <textarea type="textarea" id="rf-body-input" className="rf-input" placeholder="What did you like or dislike? What was your experience with this animal?" value={body} onChange={e => setBody(e.target.value)}/>
+                
+                
+                    {errors[0]?.includes("Body is too short (minimum is 1 character)") && 
+                        <ReviewError message="Please add a written review"/>
+                    }
                 </div>
+
 
                 <div id="rf-button-box">
                     <button id="rf-submit">Submit</button>
