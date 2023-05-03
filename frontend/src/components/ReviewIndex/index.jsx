@@ -7,6 +7,7 @@ import { reviewProcesser } from '../../utils/utils';
 import StarRatingBars from '../StarRatingBars';
 import { useState } from 'react';
 import { calcAverageRating } from '../../utils/utils';
+import { Link } from 'react-router-dom';
 
 const ReviewIndex = ({itemId, aggregate}) => {
     const dispatch = useDispatch();
@@ -31,8 +32,17 @@ const ReviewIndex = ({itemId, aggregate}) => {
                             <img id="ri-aggregate-pic" src={aggregate} alt="" />
                             <div id="ri-aggregate-text">{calcAverageRating(reviews)} out of 5</div>
                         </div>
-                        <div id="ri-num-ratings">{Object.values(reviews).length} global ratings</div>
+                        <div id="ri-num-ratings">{Object.values(reviews).length} global { Object.values(reviews).length === 1 ? "rating" : "ratings"}</div>
                         <StarRatingBars reviews={reviews}/>
+
+
+                        <div id="ri-add-review-container">
+                            <div id="ri-add-bold" className="bold">Review this animal</div>
+                            <div id="ri-add-text">Share your thoughts with other customers</div>
+                            <Link id="ri-link" to="/">
+                                <div id="ri-add-button">Write a customer review</div>
+                            </Link>
+                        </div>
 
                     </div>
                     <div id="ri-reviews">

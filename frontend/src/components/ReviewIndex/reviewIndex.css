@@ -44,6 +44,7 @@
 #ri-reviews {
     width: 680px;
     border-bottom: 1px solid #BBBFBF;
+    height: fit-content;
 }
 
 #ri-aggregate-pic {
@@ -67,4 +68,38 @@
     color: #565959;
     margin-top: 15px;
     margin-bottom: 5px;
+}
+
+#ri-add-review-container {
+    padding: 25px 0;
+    border-bottom: 1px solid #BBBFBF;
+}
+
+#ri-add-bold {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+#ri-add-text {
+    margin-bottom: 20px;
+}
+
+#ri-add-button {
+    border: 1px solid #D5D9D9;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+}
+
+#ri-add-button:hover {
+    cursor: pointer;
+    background-color: #F7FAFA;
+}
+
+#ri-link {
+    color: black;
+    text-decoration: none;
 }

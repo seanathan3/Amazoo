@@ -87,7 +87,7 @@ const ItemShow = () => {
                     <div id="is-avg-reviews">
                         <div>{calcAverageRating(reviews)}</div>
                         <img id="is-rating-pic"src={pic} alt="" />
-                        <div>{Object.keys(reviews).length} ratings</div>
+                        <div>{Object.keys(reviews).length} {Object.keys(reviews).length === 1 ? "rating" : "ratings"}</div>
                     </div>
 
                     <div id="showDivider"></div>
