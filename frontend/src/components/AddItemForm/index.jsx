@@ -34,25 +34,6 @@ const AddItemForm = ({price}) => {
             newItem.id = itemId
             dispatch(addCartItemToLS(newItem));
         }
-
-        // let dup = checkForDupes(cartItems, userId, itemId)
-        // if (dup) {
-        //     let myQuantity = parseInt(quantity) + dup.quantity
-        //     let newItem = {
-        //         id: dup.id,
-        //         quantity: myQuantity,
-        //         userId: userId,
-        //         itemId: parseInt(itemId)
-        //     }
-        //     dispatch(updateCartItem(newItem))
-        // } else {
-        //     let newItem = {
-        //         quantity: quantity,
-        //         userId: userId,
-        //         itemId: parseInt(itemId)
-        //     }
-        //     dispatch(createCartItem(newItem))
-        // }
         setReferrer(true)
 
     }

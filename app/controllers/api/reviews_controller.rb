@@ -1,4 +1,5 @@
 class Api::ReviewsController < ApplicationController
+    wrap_parameters include: Review.attribute_names + ['commenterId', 'itemId']
 
     def index
         @reviews = Item.find(params[:item_id]).reviews
