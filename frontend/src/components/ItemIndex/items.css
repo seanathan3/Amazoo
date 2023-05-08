@@ -91,3 +91,20 @@
     bottom: 13px;
     left: 5px;
 }
+
+#dc-rating-box {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+#dc-stars {
+    max-height: 18px;
+    margin-right: 5px;
+}
+
+#dc-review-text {
+    font-size: 12px;
+    position: relative;
+    top: 3px;
+}
+

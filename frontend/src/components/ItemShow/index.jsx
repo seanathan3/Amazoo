@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { fetchItem } from "../../store/itemReducer";
 import Price from "../Price";
 import AddItemForm from "../AddItemForm";
@@ -27,6 +27,16 @@ const ItemShow = () => {
     const item = useSelector(state => state?.items[itemId] ? state.items[itemId] : null)
     const reviews = useSelector(state => Object.values(state?.reviews))
     const [avg, setAvg] = useState(0);
+    const reviewRef = useRef(null);
+
+    const handleReviewsClick = () => {
+        if (reviewRef?.current) {
+          window.scrollTo({
+            top: reviewRef.current.offsetTop,
+            behavior: "smooth",
+          });
+        }
+      };
 
 
     useEffect(() => {
@@ -52,19 +62,19 @@ const ItemShow = () => {
     let pic;
     let myRating = calcAverageRating(reviews);
     console.log(myRating);
-    if (myRating >= 4.7) {
+    if (myRating >= 4.8) {
         pic = five;
     } else if (myRating >= 4.3) {
         pic = fourP;
-    } else if (myRating >= 3.7) {
+    } else if (myRating >= 3.8) {
         pic = four;
     } else if (myRating >= 3.3) {
         pic = threeP;
-    } else if (myRating >= 2.7) {
+    } else if (myRating >= 2.8) {
         pic = three;
     } else if (myRating >= 2.3) {
         pic = twoP;
-    } else if (myRating >= 1.7) {
+    } else if (myRating >= 1.8) {
         pic = two;
     } else if (myRating >= 1.3) {
         pic = oneP;
@@ -87,8 +97,15 @@ const ItemShow = () => {
                     <div id="is-avg-reviews">
                         <div>{calcAverageRating(reviews)}</div>
                         <img id="is-rating-pic"src={pic} alt="" />
-                        <div>{Object.keys(reviews).length} {Object.keys(reviews).length === 1 ? "rating" : "ratings"}</div>
+                        <Link
+                            to={`/items/${item.id}#${reviewRef?.current?.id}`}
+                            onClick={handleReviewsClick}
+                        >
+                            <div id="is-relative-link-text" className="showLink">{Object.keys(reviews).length} {Object.keys(reviews).length === 1 ? "rating" : "ratings"}</div>
+                        </Link>
                     </div>
+
+                    {console.log(reviewRef.current?.id)}
 
                     <div id="showDivider"></div>
                     
@@ -111,12 +128,8 @@ const ItemShow = () => {
                 <AddItemForm price={item?.price}/>
             </div>
 
+            <div ref={reviewRef} id="is-scroll-div"></div>
             <ReviewIndex itemId={itemId} aggregate={pic} />
-
-
-
-
-
         </>
     )
 }

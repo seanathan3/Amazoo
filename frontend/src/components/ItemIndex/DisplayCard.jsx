@@ -17,21 +17,21 @@ import { useEffect } from 'react';
 const DisplayCard = ({item}) => {
 
     let pic;
-    let myRating = calcAverageRating(item.reviews);
+    let myRating = parseFloat(item.avgRating)
     console.log(myRating);
-    if (myRating >= 4.7) {
+    if (myRating >= 4.8) {
         pic = five;
     } else if (myRating >= 4.3) {
         pic = fourP;
-    } else if (myRating >= 3.7) {
+    } else if (myRating >= 3.8) {
         pic = four;
     } else if (myRating >= 3.3) {
         pic = threeP;
-    } else if (myRating >= 2.7) {
+    } else if (myRating >= 2.8) {
         pic = three;
     } else if (myRating >= 2.3) {
         pic = twoP;
-    } else if (myRating >= 1.7) {
+    } else if (myRating >= 1.8) {
         pic = two;
     } else if (myRating >= 1.3) {
         pic = oneP;
@@ -39,23 +39,31 @@ const DisplayCard = ({item}) => {
         pic = one;
     }
 
+    function handleClick() {
+        window.scrollTo(0, 0)
+    }
+
     return (
         <>
             <div className="card">
                 <div className="cardItemImageBox">
-                    <Link to={`/items/${item.id}`}>
+                    <Link to={`/items/${item.id}`} onClick={handleClick}>
                         <img id="cardPhoto" src={item.photoUrl} alt="photo" />
                     </Link>
                 </div>
                 <div className="cardItemText">
                     <div className="cardLine">
-                        <Link to={`/items/${item.id}`}>
+                        <Link to={`/items/${item.id}`} onClick={handleClick}>
                             <div id="cardName" key="name">{item.name}</div>
                         </Link>
                         <span id="cardTypeText">class </span>
                         <Link to={`/category/${item.animalType}`}>
                             <span id="cardAnimalType" key="animalType">{item.animalType}</span>
                         </Link>
+                    </div>
+                    <div id="dc-rating-box">
+                        <img id="dc-stars" src={pic} alt="rating" />
+                        <div id="dc-review-text">({item.numReviews} {item.numReviews !== 1 ? "reviews" : "review"})</div>
                     </div>
                     <Price price={item.price}/>
                 </div>
