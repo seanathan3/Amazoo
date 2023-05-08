@@ -7,17 +7,30 @@ import { reviewProcesser } from '../../utils/utils';
 import StarRatingBars from '../StarRatingBars';
 import { useState } from 'react';
 import { calcAverageRating } from '../../utils/utils';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 const ReviewIndex = ({itemId, aggregate}) => {
     const dispatch = useDispatch();
     const reviews = useSelector(state => Object.values(state.reviews));
     const [avgRating, setAvgRating] = useState(0);
+    const [referrer, setReferrer] = useState(false);
+    const user = useSelector(state => state.session.user)
 
     useEffect(() => {
         dispatch(removeAllReviews())
         dispatch(fetchReviews(itemId));
     }, [])
+
+    function handleClick(e) {
+        if (!user) {
+            e.preventDefault();
+            setReferrer(true)
+        }
+    }
+
+    if (referrer) {
+        return <Redirect to="/login" />
+    }   
 
 
     return(
@@ -39,7 +52,7 @@ const ReviewIndex = ({itemId, aggregate}) => {
                         <div id="ri-add-review-container">
                             <div id="ri-add-bold" className="bold">Review this animal</div>
                             <div id="ri-add-text">Share your thoughts with other customers</div>
-                            <Link id="ri-link" to={`/reviews/${itemId}`}>
+                            <Link id="ri-link" to={`/reviews/${itemId}`} onClick={handleClick}>
                                 <div id="ri-add-button">Write a customer review</div>
                             </Link>
                         </div>
