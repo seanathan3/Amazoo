@@ -8,12 +8,15 @@ import two from '../../assets/amazon-stars/amazon-stars-4.png'
 import three from '../../assets/amazon-stars/amazon-stars-6.png'
 import four from '../../assets/amazon-stars/amazon-stars-8.png'
 import five from '../../assets/amazon-stars/amazon-stars-10.png'
+import { deleteReview } from '../../store/reviewReducer';
+import { Redirect, Link } from 'react-router-dom';
 
 
 
 const ReviewShow = ({review}) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.users[review.commenterId])
+    const sessionUser = useSelector(state => state.session?.user)
     
 
     let myRating;
@@ -27,6 +30,16 @@ const ReviewShow = ({review}) => {
         myRating = two;
     } else {
         myRating = one;
+    }
+
+    function handleDelete(e) {
+        e.preventDefault();
+        dispatch(deleteReview(review.id));
+    }
+
+    function handleUpdate(e) {
+        e.preventDefault();
+        return <Redirect to={`/review`} />
     }
 
 
@@ -46,6 +59,19 @@ const ReviewShow = ({review}) => {
                     <div className="bold" id="rs-title">{review.title}</div>
                 </div>
                 <div id="rs-body">{review.body}</div>
+
+                {user?.id === sessionUser?.id && (
+                    <div id="rs-admin-buttons">
+                        <Link to={`/reviews/${review.itemId}/edit`}>
+                            <button id="rs-edit">
+                                Edit
+                            </button>
+                        </Link>
+                        <button id="rs-delete" onClick={handleDelete}>
+                            Delete
+                        </button>
+                    </div>
+                )}
             </div>
         </>
     )

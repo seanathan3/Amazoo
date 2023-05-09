@@ -18,7 +18,6 @@ const DisplayCard = ({item}) => {
 
     let pic;
     let myRating = parseFloat(item.avgRating)
-    console.log(myRating);
     if (myRating >= 4.8) {
         pic = five;
     } else if (myRating >= 4.3) {

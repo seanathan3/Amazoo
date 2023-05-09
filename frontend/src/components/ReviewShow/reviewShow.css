@@ -36,3 +36,29 @@
 #rs-body {
     line-height: 20px;
 }
+
+#rs-admin-buttons {
+    display: flex;
+    margin-top: 10px;
+}
+
+#rs-admin-buttons button {
+    border-radius: 8px;
+    border: 1px solid #D5D9D9;
+    background-color: white;
+    height: 22px;
+    width: 92px;
+    box-shadow: 0 2px 5px 0 rgba(213,217,217,.5);
+    font-size: 11px;
+}
+
+#rs-admin-buttons button:hover {
+    background-color: #F7FAFA;
+}
+
+#rs-edit {
+    margin-right: 5px;
+}
+
+#rs-delete {
+}

@@ -61,7 +61,6 @@ const ItemShow = () => {
 
     let pic;
     let myRating = calcAverageRating(reviews);
-    console.log(myRating);
     if (myRating >= 4.8) {
         pic = five;
     } else if (myRating >= 4.3) {
@@ -105,7 +104,6 @@ const ItemShow = () => {
                         </Link>
                     </div>
 
-                    {console.log(reviewRef.current?.id)}
 
                     <div id="showDivider"></div>
                     

@@ -12,6 +12,7 @@ const ReviewForm = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const { itemId } = useParams();
+    const { reviewId } = useParams();
     const item = useSelector(state => state.items[itemId]);
     const user = useSelector(state => state?.session.user);
 
@@ -22,6 +23,10 @@ const ReviewForm = () => {
 
     useEffect(() => {
         dispatch(fetchItem(itemId))
+
+        if (reviewId) {
+            // dispatch(fetchRev)
+        }
     }, [itemId])
 
     function handleSubmit(e) {
@@ -49,10 +54,6 @@ const ReviewForm = () => {
                 else setErrors([res.statusText]);
             });
     }
-
-    console.log(errors)
-    // console.log(errors.includes("Title is too short (minimum is 1 character)"))
-    console.log(errors[0]?.length === 3)
 
     return (
         <>

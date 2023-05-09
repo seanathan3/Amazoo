@@ -12,7 +12,7 @@ export const receiveReviews = reviews => ({
 })
 
 export const receiveReview = review => ({
-    type: RECEIVE_REVIEWS,
+    type: RECEIVE_REVIEW,
     review
 })
 
@@ -29,6 +29,10 @@ export const fetchReviews = (itemId) => async dispatch => {
     const res = await csrfFetch(`/api/items/${itemId}/reviews`)
     const data = await res.json();
     dispatch(receiveReviews(data));
+}
+
+export const fetchReview = (reviewId) => async dispatch => {
+    const res = await csrfFetch(`/api/reviews/${reviewId}`)
 }
 
 export const createReview = (review) => async dispatch => {
@@ -50,10 +54,9 @@ export const updateReview = (review) => async dispatch => {
 }
 
 export const deleteReview = (reviewId) => async dispatch => {
-    const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+    await csrfFetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE'
     })
-    const data = await res.json();
     dispatch(removeReview(reviewId))
 }
 
