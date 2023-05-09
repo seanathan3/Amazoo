@@ -62,7 +62,7 @@ const ReviewShow = ({review}) => {
 
                 {user?.id === sessionUser?.id && (
                     <div id="rs-admin-buttons">
-                        <Link to={`/reviews/${review.itemId}/edit`}>
+                        <Link to={`/reviews/${review.itemId}/${review.id}/edit`}>
                             <button id="rs-edit">
                                 Edit
                             </button>

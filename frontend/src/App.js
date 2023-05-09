@@ -65,7 +65,11 @@ function App() {
             <ItemAddedMessage />
           </Route>
 
-          <Route path="/reviews/:itemId">
+          <Route exact path="/reviews/:itemId/:reviewId/edit">
+            <ReviewForm />
+          </Route>
+
+          <Route exact path="/reviews/:itemId">
             <ReviewForm />
           </Route>
 

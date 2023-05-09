@@ -30,6 +30,11 @@ class Api::ReviewsController < ApplicationController
         render json: { message: 'successfully deleted' }
     end
 
+    def show
+        @review = Review.find(params[:id])
+        render :show
+    end
+
 
     private
     def review_params

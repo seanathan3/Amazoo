@@ -1,0 +1,14 @@
+#re-master {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+#re-pic {
+    max-width: 18px;
+    max-height: 18px;
+    margin-right: 10px;
+}
+
+.reviewError {
+    color: #DD0000;
+}

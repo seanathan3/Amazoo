@@ -1,4 +1,5 @@
 import './reviewError.css';
+import pic from '../../assets/review-error.png';
 
 const ReviewError = ({message}) => {
     
@@ -8,7 +9,8 @@ const ReviewError = ({message}) => {
     
     return(
         <div id="re-master">
-            <p className="error">{message}</p>
+            <img id="re-pic" src={pic} alt="error" />
+            <p className="reviewError">{message}</p>
         </div>
     )
 };

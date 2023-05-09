@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { fetchItem } from '../../store/itemReducer';
 import filledStar from '../../assets/review-stars/review-star-filled.svg';
 import blankStar from '../../assets/review-stars/review-star-blank.svg';
-import { createReview } from '../../store/reviewReducer'
+import { createReview, fetchReview, updateReview } from '../../store/reviewReducer'
 import ReviewError from '../ReviewError';
 
 const ReviewForm = () => {
@@ -15,19 +15,17 @@ const ReviewForm = () => {
     const { reviewId } = useParams();
     const item = useSelector(state => state.items[itemId]);
     const user = useSelector(state => state?.session.user);
-
-    const [rating, setRating] = useState(0);
-    const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
-    const [errors, setErrors] = useState([]);
-
+    const review = useSelector(state => state.reviews[reviewId])
+    
     useEffect(() => {
         dispatch(fetchItem(itemId))
-
+        
         if (reviewId) {
-            // dispatch(fetchRev)
+            dispatch(fetchReview(reviewId))
         }
-    }, [itemId])
+    }, [dispatch, itemId, reviewId])
+    
+
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -38,7 +36,10 @@ const ReviewForm = () => {
             commenterId: user.id,
             itemId: parseInt(itemId)
         }
-        dispatch(createReview(newReview))
+
+        if (reviewId) {
+            newReview.id = reviewId
+            dispatch(updateReview(newReview))
             .then(() => {
                 history.push(`/items/${itemId}`)
             })
@@ -53,8 +54,31 @@ const ReviewForm = () => {
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
             });
+        }
+
+        dispatch(createReview(newReview))
+        .then(() => {
+            history.push(`/items/${itemId}`)
+        })
+        .catch( async (res) => {
+            let data;
+            try {
+                data = await res.clone().json();
+            } catch {
+                data = await res.text();
+            }
+            if (data?.errors) setErrors(data.errors);
+            else if (data) setErrors([data]);
+            else setErrors([res.statusText]);
+        });
     }
 
+
+    const [rating, setRating] = useState(review?.rating || 0);
+    const [title, setTitle] = useState(review?.title || '');
+    const [body, setBody] = useState(review?.body || '');
+    const [errors, setErrors] = useState([]);
+    
     return (
         <>
             <form id="rf-master" onSubmit={handleSubmit}>
@@ -88,7 +112,7 @@ const ReviewForm = () => {
                     <input type="text" id="rf-title-input" className="rf-input" placeholder="What's most important to know?" value={title} onChange={e => setTitle(e.target.value)} />
 
                     {errors[0]?.includes("Title is too short (minimum is 1 character)") && 
-                        <ReviewError message="Please enter your headline."/>
+                        <ReviewError message="Please enter your headline"/>
                     }
                 </div>
 
