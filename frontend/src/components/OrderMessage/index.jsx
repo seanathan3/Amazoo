@@ -46,7 +46,7 @@ const OrderMessage = () => {
                         Confirmation will <span className="bold">not</span> be sent to your email.
                     </div>
                     <div>
-                        {count} {count === 1 ? "item" : "items"} will be shipped to {user?.name} by Amazoo.com.
+                        {count} {parseInt(count) === 1 ? "item" : "items"} will be shipped to {user?.name} by Amazoo.com.
                     </div>
                     <div className="horizontalDivider" />
                     <div className="bold">
