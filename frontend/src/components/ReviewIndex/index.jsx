@@ -62,7 +62,6 @@ const ReviewIndex = ({itemId, aggregate}) => {
                         <div className="bold" id="ri-reviews-header">Top reviews from the United States</div>
 
                         {reviews.map(review => {
-                            console.log(review.commenterId)
                             return <ReviewShow key={review.id} review={review} />
                         })}
 
