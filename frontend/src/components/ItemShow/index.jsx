@@ -94,7 +94,7 @@ const ItemShow = () => {
                     </Link>
 
                     <div id="is-avg-reviews">
-                        <div>{calcAverageRating(reviews)}</div>
+                        <div>{Object.values(reviews).length !== 0 ? calcAverageRating(reviews) : null}</div>
                         <img id="is-rating-pic"src={pic} alt="" />
                         <Link
                             to={`/items/${item.id}#${reviewRef?.current?.id}`}

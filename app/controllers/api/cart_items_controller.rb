@@ -38,8 +38,6 @@ class Api::CartItemsController < ApplicationController
     end
 
     def transfer
-        # debugger
-        # params[:cart_items]
 
         params[:cart_items].each do |cart_item_param|
             cart_item = CartItem.find_by(user_id: current_user.id, item_id: cart_item_param[:item_id])

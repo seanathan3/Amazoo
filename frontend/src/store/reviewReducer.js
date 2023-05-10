@@ -43,7 +43,7 @@ export const createReview = (review) => async dispatch => {
         body: JSON.stringify(review)
     });
     const data = await res.json();
-    dispatch(receiveReview(data))
+    dispatch(receiveReview(data.review))
 }
 
 export const updateReview = (review) => async dispatch => {
@@ -52,7 +52,7 @@ export const updateReview = (review) => async dispatch => {
         body: JSON.stringify(review)
     });
     const data = await res.json();
-    dispatch(receiveReview(data));
+    dispatch(receiveReview(data.review));
 }
 
 export const deleteReview = (reviewId) => async dispatch => {

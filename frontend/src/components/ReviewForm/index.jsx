@@ -54,23 +54,24 @@ const ReviewForm = () => {
                 else if (data) setErrors([data]);
                 else setErrors([res.statusText]);
             });
+        } else {
+            dispatch(createReview(newReview))
+            .then(() => {
+                history.push(`/items/${itemId}`)
+            })
+            .catch( async (res) => {
+                let data;
+                try {
+                    data = await res.clone().json();
+                } catch {
+                    data = await res.text();
+                }
+                if (data?.errors) setErrors(data.errors);
+                else if (data) setErrors([data]);
+                else setErrors([res.statusText]);
+            });
         }
 
-        dispatch(createReview(newReview))
-        .then(() => {
-            history.push(`/items/${itemId}`)
-        })
-        .catch( async (res) => {
-            let data;
-            try {
-                data = await res.clone().json();
-            } catch {
-                data = await res.text();
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
-        });
     }
 
 
