@@ -57,13 +57,11 @@ const ProfileButton = () => {
             )])
         }
 
-        // let box = document.getElementsByClassName('profileMenu')[0];
 
         if (showModal) {
             let modalContent = document.getElementById('modal-content')
             modalContent.addEventListener('mouseleave', e => {
                 timer = setTimeout(() => setShowModal(false), 500);
-                // setShowModal(false);
             })
             
             modalContent.addEventListener('mouseenter', e => {
@@ -71,10 +69,6 @@ const ProfileButton = () => {
                 setShowModal(true);
             })
         }
-
-        // box.addEventListener('mouseover', e => {
-        //     setShowModal(true);
-        // })
 
         document.addEventListener('click', e => {
             setShowModal(false);
