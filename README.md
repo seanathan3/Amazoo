@@ -2,6 +2,8 @@
 
 Check out the [Live Site](https://amazoo.onrender.com)!
 
+<img width="1470" alt="amazoo-title-2" src="https://github.com/seanathan3/Amazoo/assets/111205278/f368282e-9fc8-46c8-a15c-9fddbea6f919">
+
 #### Introduction
 
 Amazoo is a clone of the Amazon.com where users can purchase exotic animals. An Amazoo user can add multiple animals to their cart, search animals by category or search, and make 'purchases'. As a frequent user of Amazon, I was interested in building out a fun platform where users can interact with their favorite animals in a novel way. The technologies implemented in this project include:
